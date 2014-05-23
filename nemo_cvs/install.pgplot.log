@@ -1,0 +1,438 @@
+src/scripts/pgplot.install png=0 gif=1
+Setting: png=0
+Setting: gif=1
+Note: using new4: gfortran=gfortran gcc=gcc
+Assuming your /home/adam/NEMO/nemo_cvs/local/pgplot is current
+Building drivers for CGDRIV,NUDRIV,PGDRIV,PSDRIV,XWDRIV,GIDRIV,PPDRIV,WDDRIV
+Renaming old X server to force it to rebuild
+For additional information, read file /home/adam/NEMO/nemo_cvs/local/pgplot/sys_linux/aaaread.me
+Creating local_sed.conf for: gfortran=gfortran gcc=gcc
+Reading configuration file: ./local_sed.conf
+Selecting uncommented drivers from ./drivers.list
+Found drivers CGDRIV GIDRIV NUDRIV PGDRIV PPDRIV PSDRIV WDDRIV XWDRIV
+Creating make file: makefile
+Determining object file dependencies.
+You may need to patch your Linux distribution:
+ln -s /usr/X11R6 /usr/X11
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/lib'
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgarro.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgask.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgaxis.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgaxlg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgband.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbbuf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbeg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbin.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbox.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbox1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcirc.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgclos.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcn01.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcnsc.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconb.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcons.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcont.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconx.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgctab.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcurs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgdraw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgebuf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgend.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgenv.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgeras.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerr1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerrb.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerrx.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerry.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgetxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfunt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfunx.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfuny.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pggray.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghi2d.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghis1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghist.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghtch.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgiden.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgimag.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pginit.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglab.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglcur.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgldev.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglen.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgline.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmove.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmtxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgncur.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnoto.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnpl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnumb.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgolin.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgopen.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpage.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpanl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpap.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpixl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpnts.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpoly.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpt1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgptxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqah.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqch.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqci.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcir.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqclp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcol.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcr.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqdt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqfs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqhs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqid.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqinf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqitf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqlw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqndt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqpos.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqtbg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqtxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqvp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqvsz.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqwin.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrect.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrnd.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrnge.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsah.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsave.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsch.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsci.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscir.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsclp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscr.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscrl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscrn.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsfs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgshls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgshs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsitf.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgslct.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgslw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgstbg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsubp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsvp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgswin.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtbox.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtext.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtick.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtikl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgupdt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvect.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvsiz.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvstd.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwedg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwnad.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgadvance.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbegin.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcurse.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglabel.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmtext.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgncurse.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpaper.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpoint.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgptext.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvport.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvsize.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvstand.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwindow.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grarea.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grbpic.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grchsz.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grclip.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grclos.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grclpl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grctoi.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grcurs.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grdot0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grdot1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grdtyp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/gresc.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grepic.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/gretxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grfa.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grfao.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grgfil.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grgray.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grimg0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grimg1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grimg2.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grimg3.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grinit.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/gritoc.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlen.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlin0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlin1.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlin2.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlin3.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grlina.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grmcur.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grmker.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grmova.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grmsg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/gropen.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpage.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpars.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpixl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpocl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grprom.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpxpo.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpxps.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpxpx.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grpxre.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqcap.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqci.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqcol.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqcr.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqdev.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqdt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqfnt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqlw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqpos.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqtxt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grqtyp.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grquit.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grrec0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grrect.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsci.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grscr.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grscrl.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsetc.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsets.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsfnt.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsize.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grskpb.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grslct.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grslw.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsyds.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsymk.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grsyxd.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grterm.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grtext.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grtoup.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grtrim.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grtrn0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grtxy0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grvct0.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grwarn.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grxhls.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/src/grxrgb.f
+gfortran -c -u -Wall -fPIC -O grexec.f
+gcc -c -Wall -fPIC -DPG_PPU -O -I. -I/usr/X11R6/include /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/cgdriv.c
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:248.53:
+
+     :     CALL GRGI03(1, 1, BX, BY, 0, BX, BY, %VAL(PIXMAP))           
+                                                     1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:266.60:
+
+     :     CALL GRGI01(IX0, IY0, IX1, IY1, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:275.60:
+
+     :     CALL GRGI01(IX0, IY0, IX0, IY0, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:287.51:
+
+            CALL GRGI06(UNIT, BX, BY, CTABLE, %VAL(PIXMAP), MAXIDX,     
+                                                   1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:367.60:
+
+     :     CALL GRGI03(IX0, IY0, IX1, IY1, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/gidriv.f:378.43:
+
+      CALL GRGI04(NBUF, RBUF, BX, BY, %VAL(PIXMAP), MAXIDX)             
+                                           1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/nudriv.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/pgdriv.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:238.53:
+
+     :     CALL GRPP03(1, 1, BX, BY, 0, BX, BY, %VAL(PIXMAP))           
+                                                     1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-2 and scalar)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:257.62:
+
+     :     CALL GRPP01(IX0, IY0, IX1, IY1, CVAL, BX, BY, %VAL(PIXMAP))  
+                                                              1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-2 and scalar)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:266.62:
+
+     :     CALL GRPP01(IX0, IY0, IX0, IY0, CVAL, BX, BY, %VAL(PIXMAP))  
+                                                              1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-2 and scalar)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:273.40:
+
+         CALL GRPP02(UNIT, BX, BY, %VAL(PIXMAP))                        
+                                        1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-1 and scalar)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:356.62:
+
+     :     CALL GRPP03(IX0, IY0, IX1, IY1, CVAL, BX, BY, %VAL(PIXMAP))  
+                                                              1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-2 and scalar)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/ppdriv.f:368.48:
+
+     :     CALL GRPP04(NBUF, RBUF, BX, BY, %VAL(PIXMAP), CTABLE)        
+                                                1
+Warning: Rank mismatch in argument 'pixmap' at (1) (rank-2 and scalar)
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/psdriv.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:231.53:
+
+     :     CALL GRWD03(1, 1, BX, BY, 0, BX, BY, %VAL(PIXMAP))           
+                                                     1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:249.60:
+
+     :     CALL GRWD01(IX0, IY0, IX1, IY1, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:258.60:
+
+     :     CALL GRWD01(IX0, IY0, IX0, IY0, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:265.48:
+
+         CALL GRWD06(UNIT, BX, BY, CTABLE, %VAL(PIXMAP), MAXIDX)        
+                                                1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:342.60:
+
+     :     CALL GRWD03(IX0, IY0, IX1, IY1, IC, BX, BY, %VAL(PIXMAP))    
+                                                            1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/wddriv.f:353.43:
+
+      CALL GRWD04(NBUF, RBUF, BX, BY, %VAL(PIXMAP), MAXIDX)             
+                                           1
+Warning: Type mismatch in argument 'pixmap' at (1); passed INTEGER(4) to INTEGER(1)
+gcc -c -Wall -fPIC -DPG_PPU -O -I. -I/usr/X11R6/include /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/xwdriv.c
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/xwdriv.c: In function ‘xw_get_server’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/drivers/xwdriv.c:3393:13: warning: ignoring return value of ‘system’, declared with attribute warn_unused_result [-Wunused-result]
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grdate.c
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c: In function ‘grofil_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c:82:5: warning: implicit declaration of function ‘strncpy’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c:82:5: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c: In function ‘grcfil_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c:129:5: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c: In function ‘grwfil_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grfileio.c:158:3: warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grflun.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grgcom.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grgenv.f
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grgetc.c
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grglun.f
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grgmem.c
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grgmsg.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grlgtr.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/groptx.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grsy00.f
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c: In function ‘groter_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:39:5: warning: implicit declaration of function ‘strncpy’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:39:5: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:48:3: warning: implicit declaration of function ‘open’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c: In function ‘grcter_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:63:3: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c: In function ‘grwter_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:77:4: warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c: In function ‘grpter_’:
+/home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtermio.c:132:8: warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtrml.f
+gfortran -c -u -Wall -fPIC -O /home/adam/NEMO/nemo_cvs/local/pgplot/sys/grtter.f
+gcc -c -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/sys/gruser.c
+ar ru libpgplot.a \
+		`ls pgarro.o pgask.o  pgaxis.o pgaxlg.o pgband.o pgbbuf.o pgbeg.o  pgbin.o  pgbox.o  pgbox1.o pgcirc.o pgcl.o   pgclos.o pgcn01.o pgcnsc.o pgconb.o pgconf.o pgconl.o pgcons.o pgcont.o pgconx.o pgcp.o   pgctab.o pgcurs.o pgdraw.o pgebuf.o pgend.o  pgenv.o  pgeras.o pgerr1.o pgerrb.o pgerrx.o pgerry.o pgetxt.o pgfunt.o pgfunx.o pgfuny.o pggray.o pghi2d.o pghis1.o pghist.o pghtch.o pgiden.o pgimag.o pginit.o pglab.o  pglcur.o pgldev.o pglen.o  pgline.o pgmove.o pgmtxt.o pgncur.o pgnoto.o pgnpl.o  pgnumb.o pgolin.o pgopen.o pgpage.o pgpanl.o pgpap.o  pgpixl.o pgpnts.o pgpoly.o pgpt.o   pgpt1.o  pgptxt.o pgqah.o  pgqcf.o  pgqch.o  pgqci.o  pgqcir.o pgqclp.o pgqcol.o pgqcr.o  pgqcs.o  pgqdt.o  pgqfs.o  pgqhs.o  pgqid.o  pgqinf.o pgqitf.o pgqls.o  pgqlw.o  pgqndt.o pgqpos.o pgqtbg.o pgqtxt.o pgqvp.o  pgqvsz.o pgqwin.o pgrect.o pgrnd.o  pgrnge.o pgsah.o  pgsave.o pgscf.o  pgsch.o  pgsci.o  pgscir.o pgsclp.o pgscr.o  pgscrl.o pgscrn.o pgsfs.o  pgshls.o pgshs.o  pgsitf.o pgslct.o pgsls.o  pgslw.o  pgstbg.o pgsubp.o pgsvp.o  pgswin.o pgtbox.o pgtext.o pgtick.o pgtikl.o pgupdt.o pgvect.o pgvsiz.o pgvstd.o pgvw.o   pgwedg.o pgwnad.o \
+		pgadvance.o pgbegin.o   pgcurse.o   pglabel.o   pgmtext.o   pgncurse.o  pgpaper.o   pgpoint.o   pgptext.o   pgvport.o   pgvsize.o   pgvstand.o  pgwindow.o  grarea.o grbpic.o grchsz.o grclip.o grclos.o grclpl.o grctoi.o grcurs.o grdot0.o grdot1.o grdtyp.o gresc.o  grepic.o gretxt.o grfa.o   grfao.o  grgfil.o grgray.o grimg0.o grimg1.o grimg2.o grimg3.o grinit.o gritoc.o grlen.o  grlin0.o grlin1.o grlin2.o grlin3.o grlina.o grmcur.o grmker.o grmova.o grmsg.o gropen.o grpage.o grpars.o grpixl.o grpocl.o grprom.o grpxpo.o grpxps.o grpxpx.o grpxre.o grqcap.o grqci.o  grqcol.o grqcr.o  grqdev.o grqdt.o  grqfnt.o grqls.o  grqlw.o  grqpos.o grqtxt.o grqtyp.o grquit.o grrec0.o grrect.o grsci.o  grscr.o  grscrl.o grsetc.o grsets.o grsfnt.o grsize.o grskpb.o grslct.o grsls.o  grslw.o  grsyds.o grsymk.o grsyxd.o grterm.o grtext.o grtoup.o grtrim.o grtrn0.o grtxy0.o grvct0.o grwarn.o grxhls.o grxrgb.o grexec.o \
+		cgdriv.o gidriv.o nudriv.o pgdriv.o ppdriv.o psdriv.o wddriv.o xwdriv.o  grdate.o grfileio.o grflun.o grgcom.o grgenv.o grgetc.o grglun.o grgmem.o grgmsg.o grlgtr.o groptx.o grsy00.o grtermio.o grtrml.o grtter.o gruser.o | sort | uniq`
+ranlib libpgplot.a
+gcc -shared  -o libpgplot.so `ls pgarro.o pgask.o  pgaxis.o pgaxlg.o pgband.o pgbbuf.o pgbeg.o  pgbin.o  pgbox.o  pgbox1.o pgcirc.o pgcl.o   pgclos.o pgcn01.o pgcnsc.o pgconb.o pgconf.o pgconl.o pgcons.o pgcont.o pgconx.o pgcp.o   pgctab.o pgcurs.o pgdraw.o pgebuf.o pgend.o  pgenv.o  pgeras.o pgerr1.o pgerrb.o pgerrx.o pgerry.o pgetxt.o pgfunt.o pgfunx.o pgfuny.o pggray.o pghi2d.o pghis1.o pghist.o pghtch.o pgiden.o pgimag.o pginit.o pglab.o  pglcur.o pgldev.o pglen.o  pgline.o pgmove.o pgmtxt.o pgncur.o pgnoto.o pgnpl.o  pgnumb.o pgolin.o pgopen.o pgpage.o pgpanl.o pgpap.o  pgpixl.o pgpnts.o pgpoly.o pgpt.o   pgpt1.o  pgptxt.o pgqah.o  pgqcf.o  pgqch.o  pgqci.o  pgqcir.o pgqclp.o pgqcol.o pgqcr.o  pgqcs.o  pgqdt.o  pgqfs.o  pgqhs.o  pgqid.o  pgqinf.o pgqitf.o pgqls.o  pgqlw.o  pgqndt.o pgqpos.o pgqtbg.o pgqtxt.o pgqvp.o  pgqvsz.o pgqwin.o pgrect.o pgrnd.o  pgrnge.o pgsah.o  pgsave.o pgscf.o  pgsch.o  pgsci.o  pgscir.o pgsclp.o pgscr.o  pgscrl.o pgscrn.o pgsfs.o  pgshls.o pgshs.o  pgsitf.o pgslct.o pgsls.o  pgslw.o  pgstbg.o pgsubp.o pgsvp.o  pgswin.o pgtbox.o pgtext.o pgtick.o pgtikl.o pgupdt.o pgvect.o pgvsiz.o pgvstd.o pgvw.o   pgwedg.o pgwnad.o \
+	pgadvance.o pgbegin.o   pgcurse.o   pglabel.o   pgmtext.o   pgncurse.o  pgpaper.o   pgpoint.o   pgptext.o   pgvport.o   pgvsize.o   pgvstand.o  pgwindow.o  grarea.o grbpic.o grchsz.o grclip.o grclos.o grclpl.o grctoi.o grcurs.o grdot0.o grdot1.o grdtyp.o gresc.o  grepic.o gretxt.o grfa.o   grfao.o  grgfil.o grgray.o grimg0.o grimg1.o grimg2.o grimg3.o grinit.o gritoc.o grlen.o  grlin0.o grlin1.o grlin2.o grlin3.o grlina.o grmcur.o grmker.o grmova.o grmsg.o gropen.o grpage.o grpars.o grpixl.o grpocl.o grprom.o grpxpo.o grpxps.o grpxpx.o grpxre.o grqcap.o grqci.o  grqcol.o grqcr.o  grqdev.o grqdt.o  grqfnt.o grqls.o  grqlw.o  grqpos.o grqtxt.o grqtyp.o grquit.o grrec0.o grrect.o grsci.o  grscr.o  grscrl.o grsetc.o grsets.o grsfnt.o grsize.o grskpb.o grslct.o grsls.o  grslw.o  grsyds.o grsymk.o grsyxd.o grterm.o grtext.o grtoup.o grtrim.o grtrn0.o grtxy0.o grvct0.o grwarn.o grxhls.o grxrgb.o grexec.o \
+	cgdriv.o gidriv.o nudriv.o pgdriv.o ppdriv.o psdriv.o wddriv.o xwdriv.o  grdate.o grfileio.o grflun.o grgcom.o grgenv.o grgetc.o grglun.o grgmem.o grgmsg.o grlgtr.o groptx.o grsy00.o grtermio.o grtrml.o grtter.o gruser.o | sort | uniq` 
+gfortran -fno-backslash -o pgdemo1 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo1.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo2 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo2.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo3 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo3.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo4 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo4.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo5 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo5.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo6 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo6.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo7 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo7.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo8 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo8.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo9 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo9.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo10 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo10.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo11 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo11.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo12 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo12.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo13 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo13.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo14 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo14.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo15 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo15.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo16 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo16.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gfortran -fno-backslash -o pgdemo17 /home/adam/NEMO/nemo_cvs/local/pgplot/examples/pgdemo17.f -L`pwd` -lpgplot -L/usr/X11R6/lib -lX11
+gcc -Wall -fPIC -DPG_PPU -O -I. -I/usr/X11R6/include -o pgxwin_server /home/adam/NEMO/nemo_cvs/local/pgplot/drivers/pgxwin_server.c -L/usr/X11R6/lib -lX11
+ 
+*** Finished compilation of PGPLOT ***
+ 
+Note that if you plan to install PGPLOT in a different
+directory than the current one, the following files will be
+needed.
+ 
+       libpgplot.a
+       libpgplot.so
+       grfont.dat
+       rgb.txt
+       pgxwin_server
+ 
+Also note that subsequent usage of PGPLOT programs requires that
+the full path of the chosen installation directory be named in
+an environment variable named PGPLOT_DIR.
+ 
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/lib'
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/lib'
+gcc -Wall -fPIC -DPG_PPU -O -I. /home/adam/NEMO/nemo_cvs/local/pgplot/cpg/pgbind.c -o pgbind
+./pgbind bsd -h -w /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgarro.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgask.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgaxis.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgaxlg.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgband.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbbuf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbeg.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbin.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbox.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbox1.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcirc.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcl.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgclos.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcn01.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcnsc.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconb.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconl.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcons.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcont.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgconx.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcp.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgctab.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcurs.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgdraw.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgebuf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgend.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgenv.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgeras.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerr1.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerrb.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerrx.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgerry.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgetxt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfunt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfunx.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgfuny.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pggray.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghi2d.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghis1.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghist.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pghtch.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgiden.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgimag.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pginit.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglab.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglcur.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgldev.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglen.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgline.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmove.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmtxt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgncur.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnoto.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnpl.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgnumb.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgolin.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgopen.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpage.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpanl.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpap.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpixl.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpnts.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpoly.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpt.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpt1.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgptxt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqah.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcf.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqch.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqci.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcir.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqclp.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcol.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcr.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqcs.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqdt.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqfs.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqhs.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqid.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqinf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqitf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqls.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqlw.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqndt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqpos.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqtbg.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqtxt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqvp.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqvsz.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgqwin.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrect.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrnd.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgrnge.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsah.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsave.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscf.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsch.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsci.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscir.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsclp.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscr.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscrl.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgscrn.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsfs.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgshls.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgshs.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsitf.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgslct.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsls.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgslw.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgstbg.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsubp.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgsvp.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgswin.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtbox.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtext.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtick.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgtikl.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgupdt.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvect.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvsiz.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvstd.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvw.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwedg.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwnad.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgadvance.f /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgbegin.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgcurse.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pglabel.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgmtext.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgncurse.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpaper.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgpoint.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgptext.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvport.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvsize.f   /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgvstand.f  /home/adam/NEMO/nemo_cvs/local/pgplot/src/pgwindow.f 
+gcc -c -Wall -fPIC -DPG_PPU -O -I. cpg*.c
+rm -f cpg*.c
+ar ru libcpgplot.a cpg*.o
+ranlib libcpgplot.a
+rm -f cpg*.o
+gcc -Wall -O -c -I. /home/adam/NEMO/nemo_cvs/local/pgplot/cpg/cpgdemo.c
+gfortran -o cpgdemo cpgdemo.o -L`pwd` -lcpgplot -lpgplot -L/usr/X11R6/lib -lX11
+rm -f cpgdemo.o
+ 
+*** Finished compilation of the C PGPLOT wrapper library ***
+ 
+Note that if you plan to install the library in a different
+directory than the current one, both libcpgplot.a and cpgplot.h
+will be needed.
+ 
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/lib'
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/lib'
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/lib'

@@ -1,0 +1,580 @@
+src/scripts/nemo.vogl
+Linux selected
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl'
+cd src; make -f Makefile \
+			CC="gcc" \
+			DEVICES="-DPOSTSCRIPT -DX11" \
+			MCFLAGS="-O -I/usr/X11R6/include " \
+			DOBJS="../drivers/ps.o ../drivers/X11.o"\
+			RANLIB="ranlib"
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src'
+cd ../drivers; make -f Makefile \
+			"CC=gcc" \
+			MCFLAGS="-O -I/usr/X11R6/include " \
+			DOBJS="../drivers/ps.o ../drivers/X11.o"
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/drivers'
+gcc -c -I../src -O -I/usr/X11R6/include  ../drivers/ps.c 
+gcc -c -I../src -O -I/usr/X11R6/include  ../drivers/X11.c 
+../drivers/X11.c: In function ‘X11_init’:
+../drivers/X11.c:287:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+../drivers/X11.c:446:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [enabled by default]
+../drivers/X11.c:448:3: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘Window’ [-Wformat]
+../drivers/X11.c:506:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+../drivers/X11.c: In function ‘X11_mapcolor’:
+../drivers/X11.c:790:4: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+../drivers/X11.c: In function ‘X11_string’:
+../drivers/X11.c:872:98: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/drivers'
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o arcs.o arcs.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o attr.o attr.c
+attr.c: In function ‘pushattributes’:
+attr.c:52:11: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o buffer.o buffer.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o clip.o clip.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o curves.o curves.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o draw.o draw.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o drivers.o drivers.c
+drivers.c: In function ‘verror’:
+drivers.c:67:2: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+drivers.c: In function ‘viniterror’:
+drivers.c:75:2: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+drivers.c: In function ‘getdevice’:
+drivers.c:264:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+drivers.c: In function ‘ginit’:
+drivers.c:325:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+drivers.c:327:18: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+drivers.c:329:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+drivers.c:331:19: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+drivers.c:332:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+drivers.c:389:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+drivers.c: In function ‘vgetdev’:
+drivers.c:506:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o viewing.o viewing.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o viewp.o viewp.c
+viewp.c: In function ‘pushviewport’:
+viewp.c:39:12: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+In file included from /usr/include/stdio.h:934:0,
+                 from viewp.c:1:
+In function ‘sprintf’,
+    inlined from ‘viewport’ at viewp.c:113:10:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:34:3: warning: call to __builtin___sprintf_chk will always overflow destination buffer [enabled by default]
+In function ‘sprintf’,
+    inlined from ‘viewport’ at viewp.c:118:10:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:34:3: warning: call to __builtin___sprintf_chk will always overflow destination buffer [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o mapping.o mapping.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o matrix.o matrix.c
+matrix.c: In function ‘pushmatrix’:
+matrix.c:96:12: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o move.o move.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o objects.o objects.c
+objects.c: In function ‘closeobj’:
+objects.c:63:6: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+objects.c: In function ‘delobj’:
+objects.c:94:5: warning: incompatible implicit declaration of built-in function ‘free’ [enabled by default]
+objects.c:102:3: warning: incompatible implicit declaration of built-in function ‘free’ [enabled by default]
+objects.c: In function ‘callobj’:
+objects.c:289:14: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+objects.c:443:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o patches.o patches.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o points.o points.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o polygons.o polygons.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o rect.o rect.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o tensor.o tensor.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o text.o text.c
+text.c: In function ‘charstr’:
+text.c:66:11: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+text.c:75:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [enabled by default]
+text.c: In function ‘strwidth’:
+text.c:244:16: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o newtokens.o newtokens.c
+newtokens.c: In function ‘newtokens’:
+newtokens.c:20:24: warning: incompatible implicit declaration of built-in function ‘malloc’ [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o trans.o trans.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o scale.o scale.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o getgp.o getgp.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o valloc.o valloc.c
+valloc.c: In function ‘vallocate’:
+valloc.c:14:19: warning: incompatible implicit declaration of built-in function ‘malloc’ [enabled by default]
+valloc.c:15:3: warning: incompatible implicit declaration of built-in function ‘sprintf’ [enabled by default]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o yobbarays.o yobbarays.c
+yobbarays.c: In function ‘yobbarays’:
+yobbarays.c:29:13: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o pref.o pref.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o vcalls.o vcalls.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o queue.o queue.c
+gcc -DPOSTSCRIPT -DX11 -O -I/usr/X11R6/include    -c -o lines.o lines.c
+lines.c: In function ‘deflinestyle’:
+lines.c:43:6: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+cd sunfort; make -f Makefile MCFLAGS="-O -I/usr/X11R6/include "
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src/sunfort'
+gcc -I.. -O -I/usr/X11R6/include    -c -o farcs.o farcs.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fattr.o fattr.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fbuffer.o fbuffer.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fcurves.o fcurves.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fdraw.o fdraw.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fdrivers.o fdrivers.c
+fdrivers.c: In function ‘voutput_’:
+fdrivers.c:16:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fdrivers.c: In function ‘vinit_’:
+fdrivers.c:51:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fdrivers.c: In function ‘vnewdev_’:
+fdrivers.c:74:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fdrivers.c: In function ‘pushdev_’:
+fdrivers.c:108:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fdrivers.c: In function ‘winopen_’:
+fdrivers.c:150:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fdrivers.c: In function ‘winope_’:
+fdrivers.c:166:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+gcc -I.. -O -I/usr/X11R6/include    -c -o fgetgp.o fgetgp.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fviewing.o fviewing.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fviewp.o fviewp.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fmatrix.o fmatrix.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fmove.o fmove.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fobjects.o fobjects.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fpatches.o fpatches.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fpoints.o fpoints.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fpoly.o fpoly.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o frect.o frect.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o ftrans.o ftrans.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fyobbarays.o fyobbarays.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o ftext.o ftext.c
+ftext.c: In function ‘charstr_’:
+ftext.c:39:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+ftext.c: In function ‘strwidth_’:
+ftext.c:175:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+gcc -I.. -O -I/usr/X11R6/include    -c -o fpref.o fpref.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fqueue.o fqueue.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fvcalls.o fvcalls.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o fbgnend.o fbgnend.c
+gcc -I.. -O -I/usr/X11R6/include    -c -o flines.o flines.c
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src/sunfort'
+rm -f libvogl.a
+ar rcv libvogl.a ../drivers/ps.o ../drivers/X11.o arcs.o attr.o buffer.o clip.o curves.o draw.o drivers.o viewing.o viewp.o mapping.o matrix.o move.o objects.o patches.o points.o polygons.o rect.o tensor.o text.o newtokens.o trans.o scale.o getgp.o valloc.o yobbarays.o pref.o vcalls.o queue.o lines.o sunfort/farcs.o sunfort/fattr.o sunfort/fcurves.o sunfort/fdraw.o sunfort/fdrivers.o sunfort/fgetgp.o sunfort/fviewing.o sunfort/fviewp.o sunfort/fmatrix.o sunfort/fmove.o sunfort/fobjects.o sunfort/fpatches.o sunfort/fpoints.o sunfort/fpoly.o sunfort/frect.o sunfort/ftrans.o sunfort/fyobbarays.o sunfort/ftext.o sunfort/fbuffer.o sunfort/fpref.o sunfort/fqueue.o sunfort/fvcalls.o sunfort/fbgnend.o sunfort/flines.o
+a - ../drivers/ps.o
+a - ../drivers/X11.o
+a - arcs.o
+a - attr.o
+a - buffer.o
+a - clip.o
+a - curves.o
+a - draw.o
+a - drivers.o
+a - viewing.o
+a - viewp.o
+a - mapping.o
+a - matrix.o
+a - move.o
+a - objects.o
+a - patches.o
+a - points.o
+a - polygons.o
+a - rect.o
+a - tensor.o
+a - text.o
+a - newtokens.o
+a - trans.o
+a - scale.o
+a - getgp.o
+a - valloc.o
+a - yobbarays.o
+a - pref.o
+a - vcalls.o
+a - queue.o
+a - lines.o
+a - sunfort/farcs.o
+a - sunfort/fattr.o
+a - sunfort/fcurves.o
+a - sunfort/fdraw.o
+a - sunfort/fdrivers.o
+a - sunfort/fgetgp.o
+a - sunfort/fviewing.o
+a - sunfort/fviewp.o
+a - sunfort/fmatrix.o
+a - sunfort/fmove.o
+a - sunfort/fobjects.o
+a - sunfort/fpatches.o
+a - sunfort/fpoints.o
+a - sunfort/fpoly.o
+a - sunfort/frect.o
+a - sunfort/ftrans.o
+a - sunfort/fyobbarays.o
+a - sunfort/ftext.o
+a - sunfort/fbuffer.o
+a - sunfort/fpref.o
+a - sunfort/fqueue.o
+a - sunfort/fvcalls.o
+a - sunfort/fbgnend.o
+a - sunfort/flines.o
+ranlib libvogl.a
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src'
+cd hershey/src; make -f Makefile \
+			CC="gcc" \
+			FONTLIB="/usr/local/lib/hershey/" \
+			MCFLAGS="-O -I/usr/X11R6/include " \
+			LIBS="-L/usr/X11R6/lib -lX11 -lm" \
+			RANLIB="ranlib"
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/hershey/src'
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o htext.o htext.c
+htext.c: In function ‘hfont’:
+htext.c:104:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+htext.c: In function ‘hershfont’:
+htext.c:208:4: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+htext.c:254:4: warning: incompatible implicit declaration of built-in function ‘free’ [enabled by default]
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o check.o check.c
+check.c: In function ‘check_loaded’:
+check.c:16:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o halloc.o halloc.c
+halloc.c:4:14: warning: conflicting types for built-in function ‘malloc’ [enabled by default]
+halloc.c: In function ‘hallocate’:
+halloc.c:19:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o fhtext.o fhtext.c
+fhtext.c: In function ‘hsetpath_’:
+fhtext.c:15:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hsetpa_’:
+fhtext.c:32:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hfont_’:
+fhtext.c:49:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hboxtext_’:
+fhtext.c:87:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hboxte_’:
+fhtext.c:105:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hcharstr_’:
+fhtext.c:180:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hchars_’:
+fhtext.c:196:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hstrlength_’:
+fhtext.c:425:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+fhtext.c: In function ‘hstrle_’:
+fhtext.c:442:2: warning: incompatible implicit declaration of built-in function ‘strncpy’ [enabled by default]
+ar rcv libhershey.a htext.o check.o halloc.o fhtext.o
+a - htext.o
+a - check.o
+a - halloc.o
+a - fhtext.o
+ranlib libhershey.a
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o h2v.o h2v.c
+h2v.c:10:14: warning: conflicting types for built-in function ‘malloc’ [enabled by default]
+h2v.c: In function ‘main’:
+h2v.c:30:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:34:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:46:2: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c: In function ‘readdata’:
+h2v.c:64:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [enabled by default]
+h2v.c:65:27: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+h2v.c: In function ‘readindex’:
+h2v.c:87:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:96:4: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c: In function ‘writefont’:
+h2v.c:127:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:146:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:164:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:168:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:183:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:188:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+h2v.c:192:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o getchar.o getchar.c
+gcc -o h2v h2v.o getchar.o
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o hdisp.o hdisp.c
+hdisp.c: In function ‘main’:
+hdisp.c:59:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+hdisp.c:64:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -o hdisp hdisp.o getchar.o libhershey.a ../../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../../src -O -I/usr/X11R6/include  -DFONTLIB=\"/usr/local/lib/hershey/\"   -c -o fdisp.o fdisp.c
+fdisp.c: In function ‘main’:
+fdisp.c:26:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -o fdisp fdisp.o libhershey.a ../../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm
+if test ! -d /usr/local/lib/hershey/;\
+	then mkdir /usr/local/lib/hershey/;\
+	fi;
+mkdir: cannot create directory `/usr/local/lib/hershey/': Permission denied
+make[2]: [/usr/local/lib/hershey] Error 1 (ignored)
+./h2v ../data/hersh.oc
+Font name: times.g
+Font name: times.i
+Font name: times.r
+Font name: times.ib
+Font name: times.rb
+Font name: futura.l
+Font name: futura.m
+Font name: gothic.eng
+Font name: gothic.ger
+Font name: gothic.ita
+Font name: math.low
+Font name: math.upp
+Font name: cyrillic
+Font name: astrology
+Font name: meteorology
+Font name: music
+Font name: greek
+Font name: cursive
+Font name: script
+Font name: markers
+Font name: symbolic
+./h2v ../data/hersh.or ../fonts/japan.hmp japanese
+Font name: japanese
+mv astrology cursive cyrillic futura.l futura.m gothic.eng \
+	gothic.ger gothic.ita greek japanese markers math.low \
+	math.upp meteorology music script symbolic times.g \
+	times.i times.ib times.r times.rb /usr/local/lib/hershey/
+mv: target `/usr/local/lib/hershey/' is not a directory
+make[2]: [fonts] Error 1 (ignored)
+touch fonts
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/hershey/src'
+cd examples; make -f Makefile \
+			CC="gcc" \
+			MCFLAGS="-O -I/usr/X11R6/include " \
+			LIBS="-L/usr/X11R6/lib -lX11 -lm"
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+gcc -I../src -O -I/usr/X11R6/include    -c -o moretxt2.o moretxt2.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o trivial.o trivial.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o simple.o simple.c
+simple.c: In function ‘main’:
+simple.c:67:32: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+gcc -I../src -O -I/usr/X11R6/include    -c -o shapes.o shapes.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o poly.o poly.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o views.o views.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o circtxt.o circtxt.c
+circtxt.c: In function ‘main’:
+circtxt.c:118:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+circtxt.c: In function ‘ShowCircularText’:
+circtxt.c:142:24: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o moretxt.o moretxt.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o curves.o curves.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o patches.o patches.c
+patches.c:61:8: warning: built-in function ‘y1’ declared as non-function [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o balls.o balls.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o objvws.o objvws.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o world.o world.c
+world.c: In function ‘showroundtext’:
+world.c:115:15: warning: incompatible implicit declaration of built-in function ‘strlen’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o loc.o loc.c
+loc.c: In function ‘main’:
+loc.c:68:4: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o teapot.o teapot.c
+teapot.c: In function ‘main’:
+teapot.c:471:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o cube.o cube.c
+cube.c: In function ‘main’:
+cube.c:160:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o lcube.o lcube.c
+lcube.c: In function ‘main’:
+lcube.c:111:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o tetra.o tetra.c
+tetra.c: In function ‘main’:
+tetra.c:153:5: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include    -c -o sinewave.o sinewave.c
+gcc -I../src -O -I/usr/X11R6/include    -c -o tmesh.o tmesh.c
+tmesh.c: In function ‘main’:
+tmesh.c:27:2: warning: incompatible implicit declaration of built-in function ‘printf’ [enabled by default]
+tmesh.c:105:7: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+gcc -I../src -O -I/usr/X11R6/include  -o trivial trivial.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o simple simple.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o shapes shapes.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o poly poly.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o views views.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o circtxt circtxt.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o moretxt moretxt.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o curves curves.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o moretxt2 moretxt2.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o patches patches.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o balls balls.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o objvws objvws.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o world world.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o loc loc.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o teapot teapot.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o cube cube.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o lcube lcube.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o tetra tetra.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o sinewave sinewave.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+gcc -I../src -O -I/usr/X11R6/include  -o tmesh tmesh.o ../src/libvogl.a ../hershey/src/libhershey.a -L/usr/X11R6/lib -lX11 -lm
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+if test -n "gfortran" ; \
+	then cd examples; make -f Makefile.f77 \
+			LIBS="-L/usr/X11R6/lib -lX11 -lm" \
+			MFFLAGS="" \
+			F77="gfortran" ; \
+	fi ; exit 0
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+gfortran -c  -I../src ftrivial.F
+gfortran -c  -I../src fsimple.F
+gfortran -c  -I../src fshapes.F
+gfortran -c  -I../src fpoly.F
+gfortran -c  -I../src fviews.F
+gfortran -c  -I../src fcirctxt.F
+fcirctxt.F:153.11:
+
+      do 10 i = 0, 360.0, inc                                           
+           1
+Warning: Deleted feature: Loop variable at (1) must be integer
+fcirctxt.F:153.18:
+
+      do 10 i = 0, 360.0, inc                                           
+                  1
+Warning: Deleted feature: End expression in DO loop at (1) must be integer
+fcirctxt.F:153.25:
+
+      do 10 i = 0, 360.0, inc                                           
+                         1
+Warning: Deleted feature: Step expression in DO loop at (1) must be integer
+gfortran -c  -I../src fmoretxt.F
+gfortran -c  -I../src fmoretx2.F
+gfortran -c  -I../src fcurves.F
+fcurves.F:248.11:
+
+      do 10 i = 0, 360.0, inc                                           
+           1
+Warning: Deleted feature: Loop variable at (1) must be integer
+fcurves.F:248.18:
+
+      do 10 i = 0, 360.0, inc                                           
+                  1
+Warning: Deleted feature: End expression in DO loop at (1) must be integer
+fcurves.F:248.25:
+
+      do 10 i = 0, 360.0, inc                                           
+                         1
+Warning: Deleted feature: Step expression in DO loop at (1) must be integer
+gfortran -c  -I../src fpatches.F
+gfortran -c  -I../src fballs.F
+fballs.F:29.12:
+
+       do 20 a = -900, 900, 200                                         
+            1
+Warning: Deleted feature: Loop variable at (1) must be integer
+gfortran -c  -I../src fobjvws.F
+gfortran -c  -I../src fworld.F
+fworld.F:143.12:
+
+       do 20 a = -90.0, 90.0, 20.0                                      
+            1
+Warning: Deleted feature: Loop variable at (1) must be integer
+fworld.F:143.16:
+
+       do 20 a = -90.0, 90.0, 20.0                                      
+                1
+Warning: Deleted feature: Start expression in DO loop at (1) must be integer
+fworld.F:143.23:
+
+       do 20 a = -90.0, 90.0, 20.0                                      
+                       1
+Warning: Deleted feature: End expression in DO loop at (1) must be integer
+fworld.F:143.29:
+
+       do 20 a = -90.0, 90.0, 20.0                                      
+                             1
+Warning: Deleted feature: Step expression in DO loop at (1) must be integer
+gfortran -c  -I../src floc.F
+gfortran -c  -I../src ftetra.F
+gfortran -c  -I../src fcube.F
+gfortran -c  -I../src flcube.F
+gfortran -c  -I../src fsinwave.F
+fsinwave.F:58.12:
+
+       do 10 a = 0.0, 2 * PI, step                                      
+            1
+Warning: Deleted feature: Loop variable at (1) must be integer
+fsinwave.F:58.16:
+
+       do 10 a = 0.0, 2 * PI, step                                      
+                1
+Warning: Deleted feature: Start expression in DO loop at (1) must be integer
+fsinwave.F:58.21:
+
+       do 10 a = 0.0, 2 * PI, step                                      
+                     1
+Warning: Deleted feature: End expression in DO loop at (1) must be integer
+fsinwave.F:58.29:
+
+       do 10 a = 0.0, 2 * PI, step                                      
+                             1
+Warning: Deleted feature: Step expression in DO loop at (1) must be integer
+gfortran -c  -I../src ftmesh.F
+gfortran  -I../src -o ftrivial ftrivial.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fsimple fsimple.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fshapes fshapes.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fpoly fpoly.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fviews fviews.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fcirctxt fcirctxt.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fmoretxt fmoretxt.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fmoretx2 fmoretx2.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fcurves fcurves.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fpatches fpatches.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fballs fballs.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fobjvws fobjvws.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fworld fworld.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o floc floc.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o ftetra ftetra.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fcube fcube.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o flcube flcube.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o fsinwave fsinwave.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+gfortran  -I../src -o ftmesh ftmesh.o ../hershey/src/libhershey.a ../src/libvogl.a -L/usr/X11R6/lib -lX11 -lm 
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl'
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl'
+cp src/libvogl.a /home/adam/NEMO/nemo_cvs/lib
+chmod 644 /home/adam/NEMO/nemo_cvs/lib/libvogl.a
+ranlib /home/adam/NEMO/nemo_cvs/lib/libvogl.a
+cd src; make DOBJS="../drivers/ps.o ../drivers/X11.o" clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src'
+rm -f libvogl.a arcs.o attr.o buffer.o clip.o curves.o draw.o drivers.o viewing.o viewp.o mapping.o matrix.o move.o objects.o patches.o points.o polygons.o rect.o tensor.o text.o newtokens.o trans.o scale.o getgp.o valloc.o yobbarays.o pref.o vcalls.o queue.o lines.o sunfort/farcs.o sunfort/fattr.o sunfort/fcurves.o sunfort/fdraw.o sunfort/fdrivers.o sunfort/fgetgp.o sunfort/fviewing.o sunfort/fviewp.o sunfort/fmatrix.o sunfort/fmove.o sunfort/fobjects.o sunfort/fpatches.o sunfort/fpoints.o sunfort/fpoly.o sunfort/frect.o sunfort/ftrans.o sunfort/fyobbarays.o sunfort/ftext.o sunfort/fbuffer.o sunfort/fpref.o sunfort/fqueue.o sunfort/fvcalls.o sunfort/fbgnend.o sunfort/flines.o core *.lint
+cd sunfort; make clean
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src/sunfort'
+rm -f farcs.o fattr.o fbuffer.o fcurves.o fdraw.o fdrivers.o fgetgp.o fviewing.o fviewp.o fmatrix.o fmove.o fobjects.o fpatches.o fpoints.o fpoly.o frect.o ftrans.o fyobbarays.o ftext.o fgetstr.o fpref.o fqueue.o fvcalls.o fbgnend.o flines.o core
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src/sunfort'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/src'
+cd hershey/src; make FONTLIB="/usr/local/lib/hershey/" clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/hershey/src'
+rm -f astrology cursive cyrillic futura.l futura.m gothic.eng \
+	gothic.ger gothic.ita greek japanese markers math.low \
+	math.upp meteorology music script symbolic times.g \
+	times.i times.ib times.r times.rb *.o core h2v hdisp fdisp fonts \
+	libhershey.a
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/hershey/src'
+cd drivers; make clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/drivers'
+rm -f core *.o
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/drivers'
+cd examples; make clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+rm -f trivial simple shapes poly views circtxt moretxt curves moretxt2 patches balls objvws world loc teapot cube lcube tetra sinewave tmesh *.o core
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+cd examples/xt; make clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/xt'
+rm -f xtballs xtlcube *.o core
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/xt'
+cd examples/xview; make clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/xview'
+rm -f *.o core xvlcube xvballs
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/xview'
+cd examples/sunview; make clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/sunview'
+rm -f  *.o core svlcube svballs
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples/sunview'
+cd examples; make -f Makefile.f77 clobber
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+rm -f ftrivial fsimple fshapes fpoly fviews fcirctxt fmoretxt fmoretx2 fcurves fpatches fballs fobjvws fworld floc ftetra fcube flcube fsinwave ftmesh *.o core
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl/examples'
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/usr/vogl'
+MKNEMO> Searching snapxyz.c: 
+found one: /home/adam/NEMO/nemo_cvs/src/nbody/xyz/snapxyz.c
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -DXYZVEL  \
+		-o snapxyz snapxyz.c \
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -lm
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+MKNEMO> Searching xyzview.c: 
+found one: /home/adam/NEMO/nemo_cvs/src/nbody/xyz/xyzview.c
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+gcc -DSINGLEPREC -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -DXYZVEL   -I/home/adam/NEMO/nemo_cvs/inc/vogl \
+		-o xyzview xyzview.c \
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/libvogl.a -lSM -lICE -lXext -lX11   -lm
+In file included from xyzview.c:38:0:
+/home/adam/NEMO/nemo_cvs/inc/vogl/gl.h:55:0: warning: "PI" redefined [enabled by default]
+In file included from xyzview.c:27:0:
+/home/adam/NEMO/nemo_cvs/inc/stdinc.h:294:0: note: this is the location of the previous definition
+xyzview.c:57:0: warning: "XMAXSCREEN" redefined [enabled by default]
+xyzview.c:50:0: note: this is the location of the previous definition
+xyzview.c:58:0: warning: "YMAXSCREEN" redefined [enabled by default]
+xyzview.c:53:0: note: this is the location of the previous definition
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+

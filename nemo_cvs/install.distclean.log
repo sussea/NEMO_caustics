@@ -1,0 +1,8 @@
+rm -f config.h makedefs config.cache config.log config.status nemo_start.sh nemo_start.csh
+mv NEMORC.local NEMORC.local.old
+(cd src; make clean)
+make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/src'
+Makefile:8: /makedefs: No such file or directory
+make[1]: *** No rule to make target `/makedefs'.  Stop.
+make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/src'
+make: *** [cleansrc] Error 2

@@ -1,0 +1,182 @@
+1.6.1 (April, 2nd 2014)
+----------------------------
+  - bug fix in best zoom from CLI
+  - Fix colormap offscreen rendering issue
+  - fix bad COD centering during snapshots playing
+  - remove zlib linking to avoid conflict with libz
+
+1.6.0 (January, 8th 2014)
+------------------------
+  - maintenance release
+  - glnemo2 compiles both with QT4 and QT5
+
+1.53 (January, 9th 2013)
+------------------------
+  - bug fix release
+  - phiGrape snasphots can be loaded again  (see issue 443)
+
+1.52 (December, 1st 2012)
+-------------------------
+  - bug fix release
+  - bug fix on temperature with gadget files
+  - fix about rescaling data when physical values <= 0
+  - ramses files, give time in giga years
+  - ramses files, fix crash when no hydro files
+  - ramses files, resize positions and hsml with respect of boxlen
+
+1.51 (July, 26th 2012)
+----------------------
+  - bug fix release
+  - fix density threshold not correctly set between frames (see issue 125)
+  - fix bug on accumulation blending rendering (key press "m") 
+
+1.50 (May, 30th 2012)
+---------------------
+  - add GUI option to control timeline and 
+    to play forward and backward direction from a list of snaphots
+  - add option to render opaque sphere like the SUN
+  - add GUI and CLI for center of density option
+
+1.42 (May, 16th 2012)
+----------------------
+  - happy qt4.6 compilation
+
+1.41 (February, 14th 2012)
+---------------------------
+  - fix wrong density value displayed on colorbar when min/max phys set from cli
+  - fix compilation issue with gyrfalcON manipulator
+
+1.40 (February, 7th 2012)
+-------------------------
+  - rotation interface totally rewritten. Rotations are now applied around
+  SCREEN axis x,y,z, which are fixed. It's more intuitive for the user.
+  - add new tab option to manage automatic rotation
+  - add screen axis display
+  - add orthographic projection
+  - density threshold controlled with mouse middle button
+  - fix bug#58 crashs on ramses file loading
+  - fix bug#61 colorbar disapear on ATI/Intel hardware
+  - happy qt4.8 compilation
+
+1.30 (November, 25th 2011)
+--------------------------
+  - add color bar display on 3D view (see "color bar" tab)
+  - fix a bug when physical values are out of limits
+  - fix a bug when list of files contains blank lines
+  - experimental object creation 
+
+1.20 (May, 3rd 2011)
+--------------
+ - new rendering pipeline based on a new shader
+ - better interactivity with density threshold
+ - faster rendering according to density threshold
+ - experimental temperature display sorted by density
+ - all components are selected when, from cli, select="all"
+ - add hotkeys to autorotate around x,y,z axis counter clockwise
+ - add lmin value for ramses amr file
+ - fix bug on histogram display if phys value<0
+ - fix bug on ramses data loading
+ - cmake compilation enabled
+	
+1.11 (February, 24th 2011)
+----------------------------
+ - happy gcc 4.5.x
+ - fix a segmentation fault on intel gpu
+ - huge speedup for phiGRAPE snapshot loading (x5 !)
+ - MacOs gyrfalcON plugin updated and fixed
+ - selected particles saved by their IDs now
+
+1.1 (October, 27th 2010)
+------------------------
+ - change text rendering engine, it's based on PLIB now, and allows to properly
+   display OSD during off-screen rendering
+   (PLIB : see http://plib.sourceforge.net/)
+ - fix an issue on shader program with NVIDIA 260.19.12 driver. ( glPointsize
+   is no more used, it has been replaced by a uniform texture factor variable)
+ - add a new tab in Options dialog box to control On Screen Display
+ - use widget->setStyleSheet to set color and to be platform independant
+ - fix a bug when reading multiple gadget files
+
+1.0 (July, 28th 2010)
+---------------------
+ - release number has changed, this is the 1.0 release !!!
+ - add a new tab in Options dialog box to manage grid and cube display
+ - if "screenshot" parameter used from the command line, image will be
+   saved in the correct file format according to the extension name
+ - bug fixed: bestzoom deactivated for the first playing frame
+ - bug fixed: if only particles are selected, a modification of the
+	     density threshold modify now the color of the particles
+ - bug fixed: display the correct number of particles selected from
+	     the mouse in the Form Option box
+ - bug fixed: display velocities vectors when selected from the cli
+
+preview.2010-May-19 (aka Leiden Release)
+-----------------------------------------
+ - remove mindens maxdens from command line parameters
+ - add minphys and maxphys to set minimum and maximum physical value
+ - add selphys to select the physical quantity to display
+ - auto_render command line parameter added
+   if true, guess the best rendering mode, otherwise use accumulation buffer
+ - glnemo2 no more crash when it displays a number of orbits
+   lesser than 20
+ - fix a bug about the rendering mode changing from time to time
+ - set correctly min/man physical quantity with respecting slide
+ - draw correctly histo view
+
+preview.2010-April-24
+---------------------
+  can select times with list of snapshots
+  add experimental Ramses reader (gas,halo,stars)
+  add gyrfalcON's runtime manipulator (see $NEMO/usr/jcl/glnemo2/gyrfalcon/README)
+  add clean installer (make install => glnemo2 install in $NEMOBIN)
+  add glnemo2 manual (man glnemo2)
+  many bugs fixed
+
+preview.2010-Feb-15
+-------------------
+  fix a bug on gadget2 file with BNDRY data
+
+preview.2010-Feb-03
+-------------------
+  glnemo2 can render automatically all the time steps of a snapshot, if 
+  from the command line, input parameters screenshot has a value  and play=t.  
+
+  Support added for Gadget2 file in multiple data file. 
+
+preview.2009-Oct-23
+-------------------
+- new input parameters enhance screenshot from the command line:
+   - mindens   : set minimum density threshold
+   - maxdens   : set maximum density threshold
+   - com       : boolean to center according to the center of mass 
+   - cmapindex : give the colormap index
+- colormap can be selected directly from the user interface
+
+- experimental temperature display
+
+1.preview.2009-Jul-16
+----------------------
+- huge speed up on the rendering engine (up to 1000% !), thanks to :
+   - vertex buffer object
+   - vertex and pixel shader (via glsl)
+   - GL_POINT_SPRITE_ARB and GL_VERTEX_PROGRAM_POINT_SIZE_NV
+
+- density rendering engine, to display and color particles according to their
+  density and the distance of their Kth neighbours. It works with gadget2
+  snapshots with gas components, and with NEMO snapshots with density field.
+
+- offscreen rendering, using frame buffer object, to take screenshot from the command line and from the GUI
+
+- new input file format phiGRAPE
+
+- possibility to record and display orbits
+
+- list of files does not need header anymore
+
+- camera path using b-splines, to fly over the simulation
+
+- **TONS** of bugs fixed
+
+1.preview.080327
+----------------
+First public release

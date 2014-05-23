@@ -1,0 +1,198 @@
+configure --with-yapp=pgplot --with-pgplot-prefix=/home/adam/NEMO/nemo_cvs/lib --enable-debug
+checking NEMO config... checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+Found CANONICAL_HOST = linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 16
+checking size of char... 1
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking for ANSI C header files... (cached) yes
+checking for strchr... yes
+checking for memcpy... yes
+checking for vendor's cc to be used instead of gcc... checking for cc... gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for gawk... gawk
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... yes
+checking for ranlib... ranlib
+checking for gmake... no
+checking for make... make
+checking whether make is GNU Make... yes
+checking which precision NEMO is going to use... 
+checking if the gnu coverage tool is to be used... no
+LFS selected, note that some filesystems may not support Large File anyways
+Test this with the NEMO command:
+     mkspiral s000 1000000 nmodel=40
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for glBegin in -lGL... yes
+checking for gluProject in -lGLU... yes
+checking for XMesaGetBackBuffer... no
+checking whether we have a FORTRAN 77 compiler... checking for gfortran... gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether gfortran accepts -g... yes
+checking how to get verbose linking output from gfortran... -v
+checking for Fortran 77 libraries of gfortran...  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath
+checking how f77 mangles function names... lowercase-underscore
+checking if f77 functions with an underscore get an extra underscore... no
+checking for f77 flags to use C main function... none
+checking for f77 flags to use C main function... (cached) none
+configure: WARNING: f77 cmain ok
+checking size of unformatted fortran I/O header/footer... 4
+checking what flags we need to created shared libs... -fpic
+checking whether we have PGPLOT... yes, /home/adam/NEMO/nemo_cvs/lib
+Trying to find LOADOBJ options for linux-gnu ; host=x86_64-unknown-linux-gnu
+checking for sqrt in -lm... yes
+checking whether we have HDF... yes: hdf4, -I/usr/include/hdf
+configure: WARNING: CFITSIO disabled
+checking almost whether we have LAM/MPI... not yet
+checking whether we have PVM_ROOT and PVM_ARCH... no
+checking whether we have MIRIAD... yes: bima-miriad /usr/local/option/miriad/
+configure: WARNING: GSL disabled
+configure: WARNING: TCL disabled
+checking for tputs in -lncurses... no
+checking for tputs in -lcurses... no
+checking for tputs in -ltermcap... yes
+checking readline/history.h usability... yes
+checking readline/history.h presence... yes
+checking for readline/history.h... yes
+checking for append_history in -lhistory... yes
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for readline in -lreadline... yes
+checking for DFSDndataset in -ldf... no
+checking for foreground in -lvogl... no
+checking for inflate in -lz... yes
+checking for strtoll in -lc... yes
+checking for strtoull in -lc... yes
+checking for dlopen in -ldl... yes
+checking for shl_load in -ldld... no
+checking for library containing sin... -lm
+checking for library containing cblas_daxpy... -lgslcblas
+checking for library containing gsl_version... -lgsl
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking sgtty.h usability... yes
+checking sgtty.h presence... yes
+checking for sgtty.h... yes
+checking for strings.h... (cached) yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for long file names... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for uid_t in sys/types.h... yes
+checking type of array argument to getgroups... gid_t
+checking whether gcc needs -traditional... no
+checking for working memcmp... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking return type of signal handlers... void
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for ftime... yes
+checking for gethostname... yes
+checking for gettimeofday... yes
+checking for getwd... yes
+checking for mkdir... yes
+checking for select... yes
+checking for strdup... yes
+checking for strtod... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for dprintf... yes
+checking for log2... yes
+checking whether byte ordering is bigendian... no
+checking looking for a reasonable YAPP... configure: WARNING: using
+pgplot
+configure: creating ./config.status
+config.status: creating NEMORC.gen
+config.status: creating Makefile
+config.status: creating makedefs
+config.status: creating nemo_start
+config.status: creating nemo.pl
+config.status: creating config.h
+
+-------------------------------------------------------------------------
+All done, continue with your installation now as described in the
+output from the command
+
+     make install
+
+Note that this command actually does not install NEMO yet, but merely
+tells you what to do in which order. The recommended procedure is using
+the bootstrap script in NEMO/src/scripts.
+-------------------------------------------------------------------------
+

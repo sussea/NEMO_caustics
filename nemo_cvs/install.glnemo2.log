@@ -1,0 +1,97 @@
+WARNING: using new experimental CMAKE install for QT5
+-- QTDIR5 location = /usr
+CMake Warning at CMakeLists.txt:40 (find_package):
+  By not providing "FindQt5Widgets.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "Qt5Widgets", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Qt5Widgets" with
+  any of the following names:
+
+    Qt5WidgetsConfig.cmake
+    qt5widgets-config.cmake
+
+  Add the installation prefix of "Qt5Widgets" to CMAKE_PREFIX_PATH or set
+  "Qt5Widgets_DIR" to a directory containing one of the above files.  If
+  "Qt5Widgets" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+CMake Warning at CMakeLists.txt:41 (find_package):
+  By not providing "FindQt5Core.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "Qt5Core", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "Qt5Core" with any
+  of the following names:
+
+    Qt5CoreConfig.cmake
+    qt5core-config.cmake
+
+  Add the installation prefix of "Qt5Core" to CMAKE_PREFIX_PATH or set
+  "Qt5Core_DIR" to a directory containing one of the above files.  If
+  "Qt5Core" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+CMake Warning at CMakeLists.txt:42 (find_package):
+  By not providing "FindQt5OpenGL.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "Qt5OpenGL", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Qt5OpenGL" with
+  any of the following names:
+
+    Qt5OpenGLConfig.cmake
+    qt5opengl-config.cmake
+
+  Add the installation prefix of "Qt5OpenGL" to CMAKE_PREFIX_PATH or set
+  "Qt5OpenGL_DIR" to a directory containing one of the above files.  If
+  "Qt5OpenGL" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+CMake Warning at CMakeLists.txt:43 (find_package):
+  By not providing "FindQt5Network.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "Qt5Network", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Qt5Network" with
+  any of the following names:
+
+    Qt5NetworkConfig.cmake
+    qt5network-config.cmake
+
+  Add the installation prefix of "Qt5Network" to CMAKE_PREFIX_PATH or set
+  "Qt5Network_DIR" to a directory containing one of the above files.  If
+  "Qt5Network" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+CMake Warning at CMakeLists.txt:44 (find_package):
+  By not providing "FindQt5PrintSupport.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "Qt5PrintSupport", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Qt5PrintSupport"
+  with any of the following names:
+
+    Qt5PrintSupportConfig.cmake
+    qt5printsupport-config.cmake
+
+  Add the installation prefix of "Qt5PrintSupport" to CMAKE_PREFIX_PATH or
+  set "Qt5PrintSupport_DIR" to a directory containing one of the above files.
+  If "Qt5PrintSupport" provides a separate development package or SDK, be
+  sure it has been installed.
+
+
+-- PROJECT_BINARY_DIR: /home/adam/NEMO/nemo_cvs/usr/jcl/glnemo2/build
+-- PROJECT_SOURCE_DIR: /home/adam/NEMO/nemo_cvs/usr/jcl/glnemo2
+CMake Error at CMakeLists.txt:92 (QT5_WRAP_CPP):
+  Unknown CMake command "QT5_WRAP_CPP".
+
+
+-- Configuring incomplete, errors occurred!
+make: *** No targets specified and no makefile found.  Stop.
+make: *** No rule to make target `install'.  Stop.
+

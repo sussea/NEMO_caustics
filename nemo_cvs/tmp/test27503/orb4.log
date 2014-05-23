@@ -1,0 +1,94 @@
+
+PotCode
+
+       nbody        freq         eta       sigma       ome          mode       tstop
+           1     10.0000      0.0000      0.0000      0.0000           4        1.00
+
+
+          tnow         T+U         T/U     cputime
+         0.000   -0.207107     -0.7071        0.00
+
+	        cm pos    1.0000    0.0000    0.0000
+	        cm vel    0.0000    1.0000    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.100   -0.207107     -0.7066        0.00
+
+	        cm pos    0.9982    0.0999    0.0000
+	        cm vel   -0.0353    0.9982    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.200   -0.207107     -0.7052        0.00
+
+	        cm pos    0.9930    0.1995    0.0000
+	        cm vel   -0.0701    0.9930    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.300   -0.207107     -0.7029        0.00
+
+	        cm pos    0.9842    0.2984    0.0000
+	        cm vel   -0.1040    0.9845    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.400   -0.207107     -0.6997        0.00
+
+	        cm pos    0.9722    0.3963    0.0000
+	        cm vel   -0.1367    0.9729    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.500   -0.207107     -0.6957        0.00
+
+	        cm pos    0.9570    0.4929    0.0000
+	        cm vel   -0.1677    0.9586    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.600   -0.207107     -0.6909        0.00
+
+	        cm pos    0.9387    0.5880    0.0000
+	        cm vel   -0.1969    0.9419    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.700   -0.207107     -0.6855        0.00
+
+	        cm pos    0.9176    0.6812    0.0000
+	        cm vel   -0.2242    0.9233    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.800   -0.207107     -0.6794        0.00
+
+	        cm pos    0.8940    0.7726    0.0000
+	        cm vel   -0.2493    0.9032    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         0.900   -0.207107     -0.6728        0.00
+
+	        cm pos    0.8678    0.8618    0.0000
+	        cm vel   -0.2724    0.8818    0.0000
+
+	particle data written
+
+          tnow         T+U         T/U     cputime
+         1.000   -0.207107     -0.6657        0.00
+
+	        cm pos    0.8395    0.9489    0.0000
+	        cm vel   -0.2934    0.8595    0.0000
+
+	particle data written
