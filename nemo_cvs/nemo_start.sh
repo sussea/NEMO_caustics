@@ -20,6 +20,6 @@ MANIPPATH=.:/home/adam/NEMO/nemo_cvs/obj/manip:/home/adam/NEMO/nemo_cvs/usr/dehn
 YAPP=/null;               export YAPP
 PGPLOT_DIR=/home/adam/NEMO/nemo_cvs/lib;   export PGPLOT_DIR
 VDEVICE=X11;         export VDEVICE
-PATH=/home/adam/NEMO/nemo_cvs/usr/dehnen/falcON/bin:/home/adam/NEMO/nemo_cvs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/MATLAB/R2012a/bin;                          export PATH
+PATH=/home/adam/NEMO/nemo_cvs/usr/dehnen/falcON/bin:/home/adam/NEMO/nemo_cvs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/MATLAB/R2012a/bin:/home/adam/NEMO/nemo_cvs/bin;                          export PATH
 MANPATH=/home/adam/NEMO/nemo_cvs/man:/usr/share/man:/usr/local/man:/home/adam/NEMO/nemo_cvs/usr/dehnen/falcON/man;                    export MANPATH
 LD_LIBRARY_PATH=/home/adam/NEMO/nemo_cvs/lib:/home/adam/NEMO/nemo_cvs/usr/dehnen/falcON/lib:/home/adam/NEMO/nemo_cvs/usr/dehnen/falcON/utils/lib:/home/adam/NEMO/nemo_cvs/lib;    export LD_LIBRARY_PATH
