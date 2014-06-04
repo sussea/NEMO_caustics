@@ -23,7 +23,7 @@ if ($?YAPPLIB) then
   echo Warning: YAPPLIB env removed, you have some remnants of an old NEMO 3.1 installation
 endif
 setenv YAPP        /xs
-setenv PGPLOT_DIR  /home/adam/NEMO/nemo_cvs/lib
+setenv PGPLOT_DIR  \$NEMOLIB
 # the next two are actually not really needed, derived from PGPLOT_DIR
 # setenv PGPLOT_LIB  $PGPLOT_DIR
 # setenv PGPLOT_FONT $PGPLOT_DIR/grfont.dat

@@ -75,7 +75,8 @@ checking for f77 flags to use C main function... (cached) none
 configure: WARNING: f77 cmain ok
 checking size of unformatted fortran I/O header/footer... 4
 checking what flags we need to created shared libs... -fpic
-checking whether we have PGPLOT... yes, /home/adam/NEMO/nemo_cvs/lib
+checking whether we have PGPLOT... configure: WARNING: could not find PGPLOT library in  yet
+yes, /home/adam/NEMO/nemo_cvs/lib
 Trying to find LOADOBJ options for linux-gnu ; host=x86_64-unknown-linux-gnu
 checking for sqrt in -lm... yes
 checking whether we have HDF... yes: hdf4, -I/usr/include/hdf
@@ -175,7 +176,9 @@ checking for strtoul... yes
 checking for dprintf... yes
 checking for log2... yes
 checking whether byte ordering is bigendian... no
-checking looking for a reasonable YAPP... configure: WARNING: using
+checking looking for a reasonable YAPP... configure: WARNING: using dollar
+\$NEMOLIB
+/home/adam/NEMO/nemo_cvs/lib
 pgplot
 configure: creating ./config.status
 config.status: creating NEMORC.gen

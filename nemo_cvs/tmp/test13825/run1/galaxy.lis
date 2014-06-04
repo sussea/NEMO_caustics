@@ -1,0 +1,125 @@
+
+
+ Mesh size    33    33    33
+ lscale value read   15.0000000    
+ time step value read   5.00000007E-02
+ Particles will be output every          10  time steps
+ Integrals will be checked every           2  time steps
+ greenm completed
+          25  particles outside the grid at the start
+ Total mass of all particles is  1.000000
+ Time-centering velocities
+ Starting step           0
+ Particles output to .res file at step and time           0   0.00000000    
+
+ Global integrals at time        0.00
+     Kinetic, potential and total E    0.2073   -0.4330   -0.2257
+     Virial of Clausius   -0.3723
+       Centre of mass   -0.0503940    0.0273342   -0.1510868
+      Linear momentum   -0.0080835   -0.0060426   -0.0130607
+     Angular momentum   -0.0149851   -0.0022595   -0.0278027
+     based on          75 particles
+ Starting step           1
+ Starting step           2
+
+ Global integrals at time        0.10
+     Kinetic, potential and total E    0.2060   -0.4307   -0.2247
+     Virial of Clausius   -0.3744
+       Centre of mass   -0.0514718    0.0265285   -0.1528283
+      Linear momentum   -0.0080836   -0.0060426   -0.0130609
+     Angular momentum   -0.0149863   -0.0022588   -0.0278008
+     based on          75 particles
+ Starting step           3
+ Starting step           4
+
+ Global integrals at time        0.20
+     Kinetic, potential and total E    0.2022   -0.4252   -0.2229
+     Virial of Clausius   -0.3688
+       Centre of mass   -0.0588642    0.0380621   -0.1710917
+      Linear momentum   -0.0106428   -0.0100881   -0.0199480
+     Angular momentum   -0.0189338   -0.0021389   -0.0173739
+     based on          74 particles
+ Starting step           5
+ Starting step           6
+
+ Global integrals at time        0.30
+     Kinetic, potential and total E    0.2024   -0.4254   -0.2230
+     Virial of Clausius   -0.3694
+       Centre of mass   -0.0603024    0.0366989   -0.1737875
+      Linear momentum   -0.0106428   -0.0100881   -0.0199482
+     Angular momentum   -0.0189311   -0.0021463   -0.0173774
+     based on          74 particles
+ Starting step           7
+ Starting step           8
+
+ Global integrals at time        0.40
+     Kinetic, potential and total E    0.1992   -0.4177   -0.2185
+     Virial of Clausius   -0.3609
+       Centre of mass   -0.0547151    0.0387229   -0.1650936
+      Linear momentum   -0.0105352   -0.0178809   -0.0181406
+     Angular momentum   -0.0144253   -0.0012151   -0.0256149
+     based on          73 particles
+ Starting step           9
+ Starting step          10
+ Particles output to .res file at step and time          10  0.500000000    
+
+ Global integrals at time        0.50
+     Kinetic, potential and total E    0.1964   -0.4139   -0.2174
+     Virial of Clausius   -0.3605
+       Centre of mass   -0.0561583    0.0362734   -0.1675786
+      Linear momentum   -0.0105352   -0.0178809   -0.0181408
+     Angular momentum   -0.0144161   -0.0012144   -0.0256090
+     based on          73 particles
+ Starting step          11
+ Starting step          12
+
+ Global integrals at time        0.60
+     Kinetic, potential and total E    0.1897   -0.3988   -0.2091
+     Virial of Clausius   -0.3484
+       Centre of mass   -0.0589222    0.0222135   -0.1650625
+      Linear momentum   -0.0041958   -0.0230120   -0.0107091
+     Angular momentum   -0.0162524   -0.0072690   -0.0243001
+     based on          71 particles
+ Starting step          13
+ Starting step          14
+
+ Global integrals at time        0.70
+     Kinetic, potential and total E    0.1912   -0.4008   -0.2096
+     Virial of Clausius   -0.3499
+       Centre of mass   -0.0595132    0.0189723   -0.1665706
+      Linear momentum   -0.0041959   -0.0230120   -0.0107093
+     Angular momentum   -0.0162549   -0.0072668   -0.0243020
+     based on          71 particles
+ Starting step          15
+ Starting step          16
+
+ Global integrals at time        0.80
+     Kinetic, potential and total E    0.1929   -0.4027   -0.2098
+     Virial of Clausius   -0.3502
+       Centre of mass   -0.0601041    0.0157312   -0.1680791
+      Linear momentum   -0.0041959   -0.0230120   -0.0107095
+     Angular momentum   -0.0162558   -0.0072684   -0.0243021
+     based on          71 particles
+ Starting step          17
+ Starting step          18
+
+ Global integrals at time        0.90
+     Kinetic, potential and total E    0.1944   -0.4049   -0.2105
+     Virial of Clausius   -0.3493
+       Centre of mass   -0.0606951    0.0124901   -0.1695875
+      Linear momentum   -0.0041960   -0.0230120   -0.0107097
+     Angular momentum   -0.0162633   -0.0072624   -0.0242985
+     based on          71 particles
+ Starting step          19
+ Starting step          20
+ Particles output to .res file at step and time          20   1.00000000    
+
+ Global integrals at time        1.00
+     Kinetic, potential and total E    0.1953   -0.4006   -0.2053
+     Virial of Clausius   -0.3444
+       Centre of mass   -0.0769626    0.0050728   -0.1696921
+      Linear momentum   -0.0082855   -0.0268181   -0.0106570
+     Angular momentum   -0.0189601   -0.0062092   -0.0252990
+     based on          70 particles
+ Run stopped at time   1.05000007    
+ Un-centering velocities

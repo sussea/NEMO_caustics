@@ -620,9 +620,7 @@ echo 'BEGIN {' >"$ac_tmp/subs1.awk" &&
 cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
 S["LTLIBOBJS"]=""
 S["YAPP_DEF"]="/xs"
-S["YAPP_LIBS"]="-L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4"\
-".7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -"\
-"L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath"
+S["YAPP_LIBS"]="-L\\$NEMOLIB -lcpgplot -lpgplot  $(XLIBS) $(FLIBS)"
 S["YAPP_NAME"]="pgplot"
 S["LIBOBJS"]=""
 S["RDL_LIBS"]="-lreadline -lhistory -ltermcap"
@@ -643,7 +641,7 @@ S["DSO_LINK"]="-Wl,--no-as-needed"
 S["MATH_LIBS"]="-lm"
 S["LOADOBJ_LIBS"]="-ldl"
 S["LOADOBJ_MACH"]="-Dlinux -DSYSV"
-S["PGPLOT_DIR"]="/home/adam/NEMO/nemo_cvs/lib"
+S["PGPLOT_DIR"]="\\$NEMOLIB"
 S["PNG_LIB"]=""
 S["MACOS_LIBS"]=""
 S["CCSHARED"]="-fpic"

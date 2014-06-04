@@ -383,7 +383,7 @@ configure:6378: $? = 0
 configure:6387: result: yes
 configure:6838: checking for XMesaGetBackBuffer
 configure:6838: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -lGLU -lGL   -lSM -lICE -lXext -lX11   >&5
-/tmp/ccElVeAu.o: In function `main':
+/tmp/cc6sP2y8.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:65: undefined reference to `XMesaGetBackBuffer'
 collect2: error: ld returned 1 exit status
 configure:6838: $? = 1
@@ -506,18 +506,18 @@ Using built-in specs.
 Target: x86_64-linux-gnu
 Thread model: posix
 gcc version 4.7.2 (Ubuntu/Linaro 4.7.2-2ubuntu1) 
- /usr/lib/gcc/x86_64-linux-gnu/4.7/f951 conftest.f -ffixed-form -quiet -dumpbase conftest.f -mtune=generic -march=x86-64 -auxbase conftest -g -g -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/4.7/finclude -o /tmp/ccQFI9Mr.s
+ /usr/lib/gcc/x86_64-linux-gnu/4.7/f951 conftest.f -ffixed-form -quiet -dumpbase conftest.f -mtune=generic -march=x86-64 -auxbase conftest -g -g -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/4.7/finclude -o /tmp/ccF46fyj.s
 GNU Fortran (Ubuntu/Linaro 4.7.2-2ubuntu1) version 4.7.2 (x86_64-linux-gnu)
 	compiled by GNU C version 4.7.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 GNU Fortran (Ubuntu/Linaro 4.7.2-2ubuntu1) version 4.7.2 (x86_64-linux-gnu)
 	compiled by GNU C version 4.7.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
- as -v --64 -o /tmp/ccJpceVP.o /tmp/ccQFI9Mr.s
+ as -v --64 -o /tmp/cc94cUNX.o /tmp/ccF46fyj.s
 GNU assembler version 2.22.90 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.22.90.20120924
 Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.7/libgfortran.spec
 rename spec lib to liborig
- /usr/lib/gcc/x86_64-linux-gnu/4.7/collect2 --sysroot=/ --build-id --no-add-needed --as-needed --eh-frame-hdr -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o conftest /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.7/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. /tmp/ccJpceVP.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.7/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+ /usr/lib/gcc/x86_64-linux-gnu/4.7/collect2 --sysroot=/ --build-id --no-add-needed --as-needed --eh-frame-hdr -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o conftest /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.7/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. /tmp/cc94cUNX.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.7/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
 configure:7208: result: -v
 configure:7210: checking for Fortran 77 libraries of gfortran
 configure:7233: gfortran -o conftest -g -v -g conftest.f
@@ -525,24 +525,24 @@ Using built-in specs.
 Target: x86_64-linux-gnu
 Thread model: posix
 gcc version 4.7.2 (Ubuntu/Linaro 4.7.2-2ubuntu1) 
- /usr/lib/gcc/x86_64-linux-gnu/4.7/f951 conftest.f -ffixed-form -quiet -dumpbase conftest.f -mtune=generic -march=x86-64 -auxbase conftest -g -g -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/4.7/finclude -o /tmp/ccznxjdx.s
+ /usr/lib/gcc/x86_64-linux-gnu/4.7/f951 conftest.f -ffixed-form -quiet -dumpbase conftest.f -mtune=generic -march=x86-64 -auxbase conftest -g -g -version -fintrinsic-modules-path /usr/lib/gcc/x86_64-linux-gnu/4.7/finclude -o /tmp/ccMUKU8s.s
 GNU Fortran (Ubuntu/Linaro 4.7.2-2ubuntu1) version 4.7.2 (x86_64-linux-gnu)
 	compiled by GNU C version 4.7.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 GNU Fortran (Ubuntu/Linaro 4.7.2-2ubuntu1) version 4.7.2 (x86_64-linux-gnu)
 	compiled by GNU C version 4.7.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
- as -v --64 -o /tmp/cchCbZzV.o /tmp/ccznxjdx.s
+ as -v --64 -o /tmp/ccloqfL7.o /tmp/ccMUKU8s.s
 GNU assembler version 2.22.90 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.22.90.20120924
 Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.7/libgfortran.spec
 rename spec lib to liborig
- /usr/lib/gcc/x86_64-linux-gnu/4.7/collect2 --sysroot=/ --build-id --no-add-needed --as-needed --eh-frame-hdr -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o conftest /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.7/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. /tmp/cchCbZzV.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.7/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
+ /usr/lib/gcc/x86_64-linux-gnu/4.7/collect2 --sysroot=/ --build-id --no-add-needed --as-needed --eh-frame-hdr -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o conftest /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.7/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. /tmp/ccloqfL7.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.7/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu/crtn.o
 configure:7408: result:  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath
 configure:7423: checking how f77 mangles function names
 configure:7434: gfortran -c -g mangle-func.f 1>&5
 configure:7437: $? = 0
 configure:7468: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c mangle-func.o  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  >&5
-/tmp/cc6qk3w5.o: In function `main':
+/tmp/cc3RcJhj.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:35: undefined reference to `foobar'
 collect2: error: ld returned 1 exit status
 configure:7468: $? = 1
@@ -590,7 +590,7 @@ configure:7482: $? = 0
 configure:7531: result: lowercase-underscore
 configure:7558: checking if f77 functions with an underscore get an extra underscore
 configure:7581: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c mangle-func.o  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  >&5
-/tmp/ccXWubJ6.o: In function `main':
+/tmp/ccYm3DIr.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:36: undefined reference to `foo_bar__'
 collect2: error: ld returned 1 exit status
 configure:7581: $? = 1
@@ -649,6 +649,7 @@ configure:7802: result: 4
 configure:7820: checking what flags we need to created shared libs
 configure:7841: result: -fpic
 configure:7865: checking whether we have PGPLOT
+configure:7892: WARNING: could not find PGPLOT library in  yet
 configure:7901: result: yes, /home/adam/NEMO/nemo_cvs/lib
 configure:7942: checking for sqrt in -lm
 configure:7967: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -lm   >&5
@@ -816,7 +817,7 @@ configure:8639: $? = 0
 configure:8648: result: yes
 configure:8666: checking for DFSDndataset in -ldf
 configure:8691: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -ldf   >&5
-/tmp/ccPIdxN5.o: In function `main':
+/tmp/cc0ylcmK.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:50: undefined reference to `DFSDndataset'
 collect2: error: ld returned 1 exit status
 configure:8691: $? = 1
@@ -1018,7 +1019,7 @@ configure:8971: result: no
 configure:8986: checking for library containing sin
 configure:9017: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -ldl -lc -lc -lz  >&5
 conftest.c:50:6: warning: conflicting types for built-in function 'sin' [enabled by default]
-/tmp/ccK3RyOF.o: In function `main':
+/tmp/ccGOHhkl.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:54: undefined reference to `sin'
 collect2: error: ld returned 1 exit status
 configure:9017: $? = 1
@@ -1086,7 +1087,7 @@ configure:9017: $? = 0
 configure:9034: result: -lm
 configure:9042: checking for library containing cblas_daxpy
 configure:9073: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -lm -ldl -lc -lc -lz  >&5
-/tmp/cce86siS.o: In function `main':
+/tmp/ccj7xGcy.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:54: undefined reference to `cblas_daxpy'
 collect2: error: ld returned 1 exit status
 configure:9073: $? = 1
@@ -1153,7 +1154,7 @@ configure:9073: $? = 0
 configure:9090: result: -lgslcblas
 configure:9098: checking for library containing gsl_version
 configure:9129: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -lgslcblas -lm -ldl -lc -lc -lz  >&5
-/tmp/cc2JI194.o: In function `main':
+/tmp/ccAaENeL.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:54: undefined reference to `gsl_version'
 collect2: error: ld returned 1 exit status
 configure:9129: $? = 1
@@ -1965,7 +1966,7 @@ configure:10598: $? = 0
 configure:10598: result: yes
 configure:10604: checking for _doprnt
 configure:10604: gcc -o conftest -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE  -g conftest.c -lgsl -lgslcblas -lm -ldl -lc -lc -lz  >&5
-/tmp/cclyYFdY.o: In function `main':
+/tmp/ccKGSI9N.o: In function `main':
 /home/adam/NEMO/nemo_cvs/conftest.c:103: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:10604: $? = 1
@@ -2322,7 +2323,7 @@ configure: failed program was:
 | }
 configure:10834: result: no
 configure:10865: checking looking for a reasonable YAPP
-configure:10882: WARNING: using
+configure:10876: WARNING: using dollar
 configure:10888: result: pgplot
 configure:11017: creating ./config.status
 
@@ -2341,12 +2342,12 @@ generated by GNU Autoconf 2.68.  Invocation command line was
 
 on adam-ThinkPad-T420
 
-config.status:945: creating NEMORC.gen
-config.status:945: creating Makefile
-config.status:945: creating makedefs
-config.status:945: creating nemo_start
-config.status:945: creating nemo.pl
-config.status:945: creating config.h
+config.status:943: creating NEMORC.gen
+config.status:943: creating Makefile
+config.status:943: creating makedefs
+config.status:943: creating nemo_start
+config.status:943: creating nemo.pl
+config.status:943: creating config.h
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -2563,7 +2564,7 @@ PACKAGE_TARNAME=''
 PACKAGE_URL=''
 PACKAGE_VERSION=''
 PATH_SEPARATOR=':'
-PGPLOT_DIR='/home/adam/NEMO/nemo_cvs/lib'
+PGPLOT_DIR='\$NEMOLIB'
 PNG_LIB=''
 PVM_INC=''
 PVM_LIB=''
@@ -2582,7 +2583,7 @@ X_EXTRA_LIBS=''
 X_LIBS=''
 X_PRE_LIBS=' -lSM -lICE'
 YAPP_DEF='/xs'
-YAPP_LIBS='-L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath'
+YAPP_LIBS='-L\$NEMOLIB -lcpgplot -lpgplot  $(XLIBS) $(FLIBS)'
 YAPP_NAME='pgplot'
 ac_ct_CC='gcc'
 ac_ct_CXX=''

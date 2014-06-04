@@ -1,0 +1,4 @@
+### nemo Debug Info: Pattern speed=0
+### nemo Debug Info: 0.000000 0.000000 30308.939388       30308.93938802 0
+### nemo Debug Info: 50.000000 76.245077 6648.566664       6724.811741121 -0.778124
+### nemo Debug Info: Energy conservation: 0.778124

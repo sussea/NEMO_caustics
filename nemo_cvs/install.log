@@ -71,6 +71,8 @@ rm -f *.o *.a core atos atos_sp atosph atosph_sp stoa stoa_sp tabtos rvsnap snap
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io_nemo'
 /bin/rm compile/obj/*.o
+/bin/rm: cannot remove `compile/obj/*.o': No such file or directory
+make[3]: [clean_obj] Error 1 (ignored)
 /bin/rm -rf compile/bin/*
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io_nemo'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/tools'
@@ -118,6 +120,9 @@ make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nb
 ### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4
 make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4'
 \rm *.o nbody4
+rm: cannot remove `*.o': No such file or directory
+rm: cannot remove `nbody4': No such file or directory
+make[5]: [clean] Error 1 (ignored)
 make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4'
 ### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/tools
 make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/tools'
@@ -250,17 +255,18 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c strlib.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c progress.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a allocate.o bswap.o burststring.o common.o cputime.o date_id.o error.o file_size.o filefn.o strlib.o progress.o
-r - allocate.o
-r - bswap.o
-r - burststring.o
-r - common.o
-r - cputime.o
-r - date_id.o
-r - error.o
-r - file_size.o
-r - filefn.o
-r - strlib.o
-r - progress.o
+ar: creating /home/adam/NEMO/nemo_cvs/lib/libnemo.a
+a - allocate.o
+a - bswap.o
+a - burststring.o
+a - common.o
+a - cputime.o
+a - date_id.o
+a - error.o
+a - file_size.o
+a - filefn.o
+a - strlib.o
+a - progress.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/cores'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/io'
@@ -281,22 +287,22 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c mstropen.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c usage.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a dprintf.o command.o convert.o cvsid.o defv.o endian.o extstring.o filesecret.o getparam.o history.o memio.o outdefv.o ieeehalfprecision.o stropen.o mstropen.o usage.o
-r - dprintf.o
-r - command.o
-r - convert.o
-r - cvsid.o
-r - defv.o
-r - endian.o
-r - extstring.o
-r - filesecret.o
-r - getparam.o
-r - history.o
-r - memio.o
-r - outdefv.o
-r - ieeehalfprecision.o
-r - stropen.o
-r - mstropen.o
-r - usage.o
+a - dprintf.o
+a - command.o
+a - convert.o
+a - cvsid.o
+a - defv.o
+a - endian.o
+a - extstring.o
+a - filesecret.o
+a - getparam.o
+a - history.o
+a - memio.o
+a - outdefv.o
+a - ieeehalfprecision.o
+a - stropen.o
+a - mstropen.o
+a - usage.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/misc'
@@ -342,51 +348,52 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c unwrap.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c mp_nllsqfit.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a axis.o besselfunc.o erf.o fie.o frandom.o grid.o hash.o herinp.o layout.o linreg.o log2.o lsq.o matinv.o mpfit.o nemofie.o imsl.o match.o mdarray.o median.o minmax.o moment.o nemoinp.o nemomain.o newextn.o pick.o pow.o run.o scanopt.o setfblank.o spline.o timers.o vectmath.o within.o xrand.o xrandom.o sort.o sortptr.o unwrap.o mp_nllsqfit.o
-r - axis.o
-r - besselfunc.o
-r - erf.o
-r - fie.o
-r - frandom.o
-r - grid.o
-r - hash.o
-r - herinp.o
-r - layout.o
-r - linreg.o
-r - log2.o
-r - lsq.o
-r - matinv.o
-r - mpfit.o
-r - nemofie.o
-r - imsl.o
-r - match.o
-r - mdarray.o
-r - median.o
-r - minmax.o
-r - moment.o
-r - nemoinp.o
-r - nemomain.o
-r - newextn.o
-r - pick.o
-r - pow.o
-r - run.o
-r - scanopt.o
-r - setfblank.o
-r - spline.o
-r - timers.o
-r - vectmath.o
-r - within.o
-r - xrand.o
-r - xrandom.o
-r - sort.o
-r - sortptr.o
-r - unwrap.o
-r - mp_nllsqfit.o
+a - axis.o
+a - besselfunc.o
+a - erf.o
+a - fie.o
+a - frandom.o
+a - grid.o
+a - hash.o
+a - herinp.o
+a - layout.o
+a - linreg.o
+a - log2.o
+a - lsq.o
+a - matinv.o
+a - mpfit.o
+a - nemofie.o
+a - imsl.o
+a - match.o
+a - mdarray.o
+a - median.o
+a - minmax.o
+a - moment.o
+a - nemoinp.o
+a - nemomain.o
+a - newextn.o
+a - pick.o
+a - pow.o
+a - run.o
+a - scanopt.o
+a - setfblank.o
+a - spline.o
+a - timers.o
+a - vectmath.o
+a - within.o
+a - xrand.o
+a - xrandom.o
+a - sort.o
+a - sortptr.o
+a - unwrap.o
+a - mp_nllsqfit.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 g++ -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c nemomain++.cc
 nemomain++.cc: In function ‘int main(int, char**)’:
 nemomain++.cc:27:75: warning: deprecated conversion from string constant to ‘string {aka char*}’ [-Wwrite-strings]
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo++.a nemomain++.o
-r - nemomain++.o
+ar: creating /home/adam/NEMO/nemo_cvs/lib/libnemo++.a
+a - nemomain++.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo++.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/misc'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/loadobj'
@@ -394,9 +401,9 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c mapsys.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c getfunc.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a loadobj.o mapsys.o getfunc.o
-r - loadobj.o
-r - mapsys.o
-r - getfunc.o
+a - loadobj.o
+a - mapsys.o
+a - getfunc.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/loadobj'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab'
@@ -406,11 +413,11 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c funtab.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c getaline.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a table.o gettab.o tabselect.o funtab.o getaline.o
-r - table.o
-r - gettab.o
-r - tabselect.o
-r - funtab.o
-r - getaline.o
+a - table.o
+a - gettab.o
+a - tabselect.o
+a - funtab.o
+a - getaline.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab/fit'
@@ -450,26 +457,26 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c lfit.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c nr_nllsqfit.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a eigsrt.o jacobi.o nrutil.o eigsrt_d.o jacobi_d.o ran3.o beta.o gamma.o pearsn.o probks.o kstwo.o polint.o trapzd.o qromb.o gaussj.o mrqcof.o covsrt.o mrqmin.o lfit.o nr_nllsqfit.o
-r - eigsrt.o
-r - jacobi.o
-r - nrutil.o
-r - eigsrt_d.o
-r - jacobi_d.o
-r - ran3.o
-r - beta.o
-r - gamma.o
-r - pearsn.o
-r - probks.o
-r - kstwo.o
-r - polint.o
-r - trapzd.o
-r - qromb.o
-r - gaussj.o
-r - mrqcof.o
-r - covsrt.o
-r - mrqmin.o
-r - lfit.o
-r - nr_nllsqfit.o
+a - eigsrt.o
+a - jacobi.o
+a - nrutil.o
+a - eigsrt_d.o
+a - jacobi_d.o
+a - ran3.o
+a - beta.o
+a - gamma.o
+a - pearsn.o
+a - probks.o
+a - kstwo.o
+a - polint.o
+a - trapzd.o
+a - qromb.o
+a - gaussj.o
+a - mrqcof.o
+a - covsrt.o
+a - mrqmin.o
+a - lfit.o
+a - nr_nllsqfit.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/numrec'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/math'
@@ -478,10 +485,10 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c rk4.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c rkqc.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a nllsqfit.o odeint.o rk4.o rkqc.o
-r - nllsqfit.o
-r - odeint.o
-r - rk4.o
-r - rkqc.o
+a - nllsqfit.o
+a - odeint.o
+a - rk4.o
+a - rkqc.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/math'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/yapp'
@@ -501,14 +508,14 @@ make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/fortran'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c getparam_ftoc.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c unfio.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a getparam_ftoc.o unfio.o
-r - getparam_ftoc.o
-r - unfio.o
+a - getparam_ftoc.o
+a - unfio.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/fortran'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/hdf'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -I/usr/include/hdf -c hdf_info.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a hdf_info.o
-r - hdf_info.o
+a - hdf_info.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/hdf'
 make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel'
@@ -519,10 +526,10 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c zerocms.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c bodytrans.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a  pickpnt.o units.o zerocms.o bodytrans.o
-r - pickpnt.o
-r - units.o
-r - zerocms.o
-r - bodytrans.o
+a - pickpnt.o
+a - units.o
+a - zerocms.o
+a - bodytrans.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a 
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores/bodysub'
@@ -605,7 +612,7 @@ make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores/bodysub'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c snapserial.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a  snapserial.o
-r - snapserial.o
+a - snapserial.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a 
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io_nemo'
@@ -623,27 +630,30 @@ gcc -Wall -g -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/ne
 src/io_get_put_f.c: In function ‘get_data_select_f’:
 src/io_get_put_f.c:302:10: warning: variable ‘headline’ set but not used [-Wunused-but-set-variable]
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a  compile/obj/parameters.o compile/obj/check_file.o compile/obj/io_init.o compile/obj/io_nemo_tools.o compile/obj/get_data_wrapper.o compile/obj/io_nemo.o compile/obj/io_get_put.o compile/obj/io_nemo_f.o compile/obj/io_get_put_f.o
-r - compile/obj/parameters.o
-r - compile/obj/check_file.o
-r - compile/obj/io_init.o
-r - compile/obj/io_nemo_tools.o
-r - compile/obj/get_data_wrapper.o
-r - compile/obj/io_nemo.o
-r - compile/obj/io_get_put.o
-r - compile/obj/io_nemo_f.o
-r - compile/obj/io_get_put_f.o
+a - compile/obj/parameters.o
+a - compile/obj/check_file.o
+a - compile/obj/io_init.o
+a - compile/obj/io_nemo_tools.o
+a - compile/obj/get_data_wrapper.o
+a - compile/obj/io_nemo.o
+a - compile/obj/io_get_put.o
+a - compile/obj/io_nemo_f.o
+a - compile/obj/io_get_put_f.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a 
 gcc -Wall -g -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -DGFORT -Wall -g -Itest_src -Isrc -c src/nemo_g77.c -o compile/obj/nemo_g77.o 
 src/nemo_g77.c:13:9: note: #pragma message: GCC compiler >= 4.5.0
 src/nemo_g77.c:14:9: note: #pragma message: Gfortran has its own main() function...
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemomaing77.a  compile/obj/nemo_g77.o
-r - compile/obj/nemo_g77.o
+ar: creating /home/adam/NEMO/nemo_cvs/lib/libnemomaing77.a
+a - compile/obj/nemo_g77.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemomaing77.a 
 gcc -Wall -g -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -Wall -g -Itest_src -Isrc -c src/dummy.c -o compile/obj/dummy.o
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libio_nemo.a compile/obj/dummy.o
-r - compile/obj/dummy.o
+ar: creating /home/adam/NEMO/nemo_cvs/lib/libio_nemo.a
+a - compile/obj/dummy.o
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libio_nemo_f.a compile/obj/dummy.o
-r - compile/obj/dummy.o
+ar: creating /home/adam/NEMO/nemo_cvs/lib/libio_nemo_f.a
+a - compile/obj/dummy.o
 gcc -Wall -g -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -Wall -g -Itest_src -Isrc -DSINGLEPREC -c test_src/io_nemo_test.c       \
 			       -o compile/obj/io_nemo_test_float.o
 test_src/io_nemo_test.c: In function ‘nemo_main’:
@@ -1342,7 +1352,7 @@ make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/fits'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/kepler'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c kep2kep.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a kep2kep.o
-r - kep2kep.o
+a - kep2kep.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/kepler'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/image'
@@ -1356,7 +1366,7 @@ make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/cores'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c get_nan.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a get_nan.o
-r - get_nan.o
+a - get_nan.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/cores'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/io'
@@ -1364,15 +1374,15 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c xyio.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c wcsio.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a image.o xyio.o wcsio.o
-r - image.o
-r - xyio.o
-r - wcsio.o
+a - image.o
+a - xyio.o
+a - wcsio.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c contour.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a contour.o
-r - contour.o
+a - contour.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/trans'
@@ -1385,20 +1395,20 @@ fits.c: In function ‘fts_phead’:
 fits.c:1256:13: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t’ [-Wformat]
 fits.c:1256:13: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘size_t’ [-Wformat]
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a fitsio_nemo.o fits.o
-r - fitsio_nemo.o
-r - fits.o
+a - fitsio_nemo.o
+a - fits.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/fits'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/wcs'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c worldpos.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a worldpos.o
-r - worldpos.o
+a - worldpos.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/wcs'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/rotcur'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c rotcurs.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a rotcurs.o
-r - rotcurs.o
+a - rotcurs.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/rotcur'
 make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image'
@@ -1406,15 +1416,15 @@ make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/io'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c orbit.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a orbit.o
-r - orbit.o
+a - orbit.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c dopri5.c
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c dop853.c
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a dopri5.o dop853.o
-r - dopri5.o
-r - dop853.o
+a - dopri5.o
+a - dop853.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential'
@@ -1422,9 +1432,9 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gfortran -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic   -c -o fmath.o fmath.f
 g++ -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -c acceleration.cc
 ar ruv /home/adam/NEMO/nemo_cvs/lib/libnemo.a potential.o fmath.o acceleration.o
-r - potential.o
-r - fmath.o
-r - acceleration.o
+a - potential.o
+a - fmath.o
+a - acceleration.o
 ranlib /home/adam/NEMO/nemo_cvs/lib/libnemo.a
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential/data'
@@ -6533,7 +6543,7 @@ mv csf tsf rsf qsf hisf endian /home/adam/NEMO/nemo_cvs/bin
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/misc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o nemoinp nemoinp.c -DTOOLBOX  -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -lm
-gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o layout layout.c -DTOOLBOX -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o layout layout.c -DTOOLBOX -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o xrandom -DTOOLBOX xrandom.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o scanopt -DTOOLBOX scanopt.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm 
 mv nemoinp layout xrandom scanopt  /home/adam/NEMO/nemo_cvs/bin
@@ -6545,10 +6555,10 @@ mv getfunc /home/adam/NEMO/nemo_cvs/bin
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/loadobj'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -DYAPP -o tabhist tabhist.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o tablst tablst.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o tabplot tabplot.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -UHAVE_GSL -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o tablsqfit tablsqfit.c \
 		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o tabmath tabmath.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
@@ -6581,7 +6591,7 @@ make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/math'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/yapp'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o catps catps.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o catpgps catpgps.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -lm
-gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o yapp yappmain.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o yapp yappmain.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
 mv catps catpgps yapp /home/adam/NEMO/nemo_cvs/bin
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/yapp'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/fortran'
@@ -6889,19 +6899,19 @@ make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans/hackdens'
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/reduc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapplot snapplot.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 snapplot.c: In function ‘setcolors’:
 snapplot.c:306:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 3 has type ‘real *’ [-Wformat]
 snapplot.c:306:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 4 has type ‘real *’ [-Wformat]
 snapplot.c:306:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 5 has type ‘real *’ [-Wformat]
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapplot3 snapplot3.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 snapplot3.c: In function ‘setcolors’:
 snapplot3.c:279:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 3 has type ‘real *’ [-Wformat]
 snapplot3.c:279:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 4 has type ‘real *’ [-Wformat]
 snapplot3.c:279:17: warning: format ‘%g’ expects argument of type ‘float *’, but argument 5 has type ‘real *’ [-Wformat]
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapdiagplot snapdiagplot.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapmstat snapmstat.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 snapmstat.c: In function ‘snapsort’:
 snapmstat.c:84:5: warning: passing argument 4 of ‘qsort’ from incompatible pointer type [enabled by default]
@@ -6917,16 +6927,16 @@ In file included from /home/adam/NEMO/nemo_cvs/inc/stdinc.h:82:0,
                  from snapcmp.c:14:
 /usr/include/stdlib.h:761:13: note: expected ‘__compar_fn_t’ but argument is of type ‘int (*)(real *, real *)’
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -DHISTOGRAM -o snapcmphist snapcmp.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -DSCATTERPLOT -o snapcmpplot snapcmp.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapsample snapsample.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapstat snapstat.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapmnmx snapmnmx.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o radprof radprof.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapkinplot snapkinplot.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapfour snapfour.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapkinem snapkinem.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapmradii snapmradii.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
@@ -6941,7 +6951,7 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapvratio snapvratio.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapshell snapshell.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapplotv snapplotv.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapfit snapfit.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o snapkmean snapkmean.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 mv snapplot snapplot3 snapdiagplot snapmstat snapprint snapcmp snapcmphist snapcmpplot snapsample snapstat snapmnmx radprof snapkinplot snapfour snapkinem snapmradii snapopt snaprstat snaptrak snapvratio snapshell snapplotv snapfit snapkmean /home/adam/NEMO/nemo_cvs/bin
@@ -6970,7 +6980,7 @@ snapmap.c:56:0: warning: "HUGE" redefined [enabled by default]
 In file included from /home/adam/NEMO/nemo_cvs/inc/stdinc.h:89:0,
                  from snapmap.c:17:
 /usr/include/math.h:348:0: note: this is the location of the previous definition
-gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapslit snapslit.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o snapslit snapslit.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
 mv snapccd snapgrid snapmap snapslit /home/adam/NEMO/nemo_cvs/bin
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/image'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
@@ -7011,7 +7021,7 @@ make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o ccdgoat ccdgoat.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o ccdplot ccdplot.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o ccdstat ccdstat.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 ccdstat.c: In function ‘nemo_main’:
 ccdstat.c:202:2: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘real’ [-Wformat]
@@ -7027,7 +7037,7 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 ccdmom.c: In function ‘nemo_main’:
 ccdmom.c:159:11: warning: assignment from incompatible pointer type [enabled by default]
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -DYAPP -o ccdhist ccdhist.c \
-		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
+		-L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 mv ccdgoat ccdplot ccdstat ccdsub ccdmom ccdhist /home/adam/NEMO/nemo_cvs/bin
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/trans'
@@ -7084,13 +7094,8 @@ make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/io'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o orbfour orbfour.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o orbint orbint.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
-/tmp/ccARcewf.o: In function `setparams':
-/home/adam/NEMO/nemo_cvs/src/orbit/misc/orbint.c:156: undefined reference to `print'
-/home/adam/NEMO/nemo_cvs/src/orbit/misc/orbint.c:158: undefined reference to `print'
-collect2: error: ld returned 1 exit status
-make[3]: [orbint] Error 1 (ignored)
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o orbintv orbintv.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
-gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o orbplot orbplot.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o orbplot orbplot.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath  
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o otos otos.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 In file included from otos.c:21:0:
 /home/adam/NEMO/nemo_cvs/inc/snapshot/body.h:37:0: warning: "Key" redefined [enabled by default]
@@ -7102,12 +7107,10 @@ gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -r
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o orbstat orbstat.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o orblist orblist.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 mv orbfour orbint orbintv orbplot otos perorb stoo orbsos orbstat orblist /home/adam/NEMO/nemo_cvs/bin
-mv: cannot stat `orbint': No such file or directory
-make[3]: [bins] Error 1 (ignored)
 make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
 make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential'
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o potlist potlist.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
-gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o rotcurves rotcurves.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L/home/adam/NEMO/nemo_cvs/lib -lcpgplot -lpgplot    -lSM -lICE -lXext -lX11   -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
+gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed -o rotcurves rotcurves.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm   /home/adam/NEMO/nemo_cvs/lib/yapp_pgplot.o -L\EMOLIB -lcpgplot -lpgplot  -lSM -lICE -lXext -lX11  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -lm
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o potccd potccd.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o potq potq.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 
 gcc -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -fpic -rdynamic -I/home/adam/NEMO/nemo_cvs/inc -I/home/adam/NEMO/nemo_cvs/lib   -Dlinux -DSYSV -Wl,--no-as-needed  -o potrot potrot.c -L/home/adam/NEMO/nemo_cvs/lib          -lnemo -ldl  -lreadline -lhistory -ltermcap  -lm  -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath -L/usr/lib/gcc/x86_64-linux-gnu/4.7 -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.7/../../.. -lgfortran -lm -lquadmath 

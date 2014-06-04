@@ -2,7 +2,230 @@ rm -f config.h makedefs config.cache config.log config.status nemo_start.sh nemo
 mv NEMORC.local NEMORC.local.old
 (cd src; make clean)
 make[1]: Entering directory `/home/adam/NEMO/nemo_cvs/src'
-Makefile:8: /makedefs: No such file or directory
-make[1]: *** No rule to make target `/makedefs'.  Stop.
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/tools'
+### Dir: /home/adam/NEMO/nemo_cvs/src/tools/misc
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/tools/misc'
+rm -f hd redir accudate *.o *.a core 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/tools/misc'
+### Dir: /home/adam/NEMO/nemo_cvs/src/tools/tkrun
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/tools/tkrun'
+rm -f core *.o tkrun testscript.tk  scratchrun.tk
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/tools/tkrun'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/tools'
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/cores
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/cores'
+rm -f *.o *.a core bswap errortest burstrtest filefntest sizetest cputest cputool progresstest allocatetest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/cores'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/io
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/io'
+rm -f *.o *.a *~ core csf tsf rsf qsf hisf endian getpartest stropentest extstrtest commandtest testio testfs testprompt memiotest mstropentest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/io'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/misc
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/misc'
+rm -f *.o *.a core nemoinp layout xrandom scanopt  vecttest axistest splinetest withintest matchtest linreg momenttest gridtest unwraptest frandomtest mdarraytest timerstest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/misc'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/loadobj
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/loadobj'
+rm -f *.o *.so *.a *~ core getfunc getfunc loadobjtest mapsystest loadobj mapsys ld-tmp.* ms-tmp.*
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/loadobj'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/tab
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab'
+rm -f *.o *.a *~ core tabhist tablst tabplot tablsqfit tabmath gettab funtab meanmed tabcomment tabspline tab2xml tabnllsqfit tabdate tabfilter tabtrend getaline
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/tab/fit
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab/fit'
+rm -f *.o *.so *.a core   ctextest.*
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/tab/fit'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/numrec
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/numrec'
+rm -f *.o *.a core  
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/numrec'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/math
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/math'
+rm -f *.o *.a core  
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/math'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/yapp
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/yapp'
+rm -f yapp.o catps catpgps yapp yapptest yapptest_mongo yapptest_pgplot yapptest_core yapptest_suntools yapptest_gl yapptest_ps yapptest_ps_new yapptest_psg yapptest_cg yapptest_cg_new yapptest_sv yapptest_sm yapptest_gt yapptest_plplot yapptest_x *.o *.a core
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/yapp'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/fortran
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/fortran'
+rm -f *~ *.o *.a core ftoc test unfio testunfio funcc funcf test_main.c mainfuncf_tmp.*
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/fortran'
+### Dir: /home/adam/NEMO/nemo_cvs/src/kernel/hdf
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/kernel/hdf'
+rm -f *.o *.a *~ core  tsd  
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel/hdf'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/kernel'
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores'
+rm -f *.o *.a *~ core bodytrans testunits
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores/bodysub'
+rm -f *.o *.so *.o~ *.a core
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/cores/bodysub'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/io/gadget
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io/gadget'
+make[4]: *** [clean] Error 1
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io/gadget'
+make[3]: [clean] Error 2 (ignored)
+rm -f *.o *.a core atos atos_sp atosph atosph_sp stoa stoa_sp tabtos rvsnap snaprv snaptipsy tipsysnap gadgetsnap snapgadget binsnap testss testio
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/io_nemo'
+/bin/rm compile/obj/*.o
+/bin/rm -rf compile/bin/*
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/io_nemo'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/tools'
+rm -f *.o *.a core pathlabel
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/tools'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/init'
+rm -f *.o *.a core mkplummer mkdisk mkconfig mkexpdisk mkbaredisk mkommod mkpolytrope mktestdisk plummer mkexphot snapenter mkspiral mkhom mkhomsph mkop73 mkcube mksphere mkflowdisk magalie 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/init'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode1
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode1'
+rm -f *.o *.a core hackcode1 hackcode1_qp hackforce_qp hackforce 
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode1'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode3
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode3'
+rm -f *.o *.a core hackcode3 hackcode3_qp 
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/hackcode3'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/treecode1
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/treecode1'
+rm -f *.o *.a core treecode1 treecode1_q
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode/treecode1'
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/hackcode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody0
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody0'
+rm -f nbody0 nbody00 nbody0_ff *.o *.a core
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody0'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody1
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody1'
+(cd source; make clean)
+make[6]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody1/source'
+\rm -f core nbody1 *.o
+make[6]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody1/source'
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody1'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody2
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody2'
+(cd source; make clean)
+make[6]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody2/source'
+\rm -f core nbody2 *.o
+make[6]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody2/source'
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody2'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4'
+\rm *.o nbody4
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/nbody4'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/tools
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/tools'
+rm -f core *.o *.a *.doc u3tos u4tos stou4 runbody1 runbody2 runbody4 runbody1 runbody2 
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth/tools'
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/aarseth'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/scfm
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/scfm'
+rm -fr scfm.exe runscfm core *.o SNAP??? SCFLOG SCFOUT SCFEL??? scfm.tar bench
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/scfm'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/directcode
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/directcode'
+rm -f *.o *.a core directcode
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/directcode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/multicode
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/multicode'
+rm -f *.o *.a *~ core quadcode quadforce quadinter
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/multicode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/flowcode
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/flowcode'
+rm -f *.o *.BAK *.CKP *~ core flowcode 
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/flowcode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/potcode
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/potcode'
+rm -f *.o *.BAK *.CKP potcode core
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/potcode'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/code1
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/code1'
+rm -f  galaxy *.o *.a core galaxy.res galaxy.fin galaxy.lis
+(cd lib; make clean)
+make[6]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/code1/lib'
+rm -f core *.o *.a 
+make[6]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/code1/lib'
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/code1'
+### Dir: /home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/tools
+make[5]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/tools'
+rm -f *.o *.a core rungalaxy 
+make[5]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood/tools'
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve/sellwood'
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/evolve'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans'
+rm -f p6
+rm -f *.o *.a core snapcenter snapsort snapstack snaptrim snaprotate snapdens snapscale unbind snapmask snapadd snaprect snapsphere snapmass snapspin snaptrans snapvirial snapcopy snapinert snapmerge snapshift snapsplit snapmerge_a_sp snapmerge_a_dp 
+(cd hackdens; make clean)
+make[4]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans/hackdens'
+rm -f *.o *.a core hackdens 
+make[4]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans/hackdens'
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/trans'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/reduc'
+rm -f *.o *.a core snapplot snapplot3 snapdiagplot snapmstat snapprint snapcmp snapcmphist snapcmpplot snapsample snapstat snapmnmx radprof snapkinplot snapfour snapkinem snapmradii snapopt snaprstat snaptrak snapvratio snapshell snapplotv snapfit snapkmean 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/reduc'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/fits'
+rm -f *.o *.a core snapfits 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/fits'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/kepler'
+rm -f *.o *.a core  kep2kep
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/kepler'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/image'
+rm -f *.o *.a core snapccd snapgrid snapmap snapslit 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/image'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+rm -f *.o *.a core snapxyz xyzview 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody/xyz'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/nbody'
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/cores'
+rm -f *.o *.a core  
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/cores'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/io'
+rm -f *.o *.a core ccddump ccdprint ccdslice sigccd imagetest xyiotest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/io'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
+rm -f *.o *.a *~ core ccdgoat ccdplot ccdstat ccdsub ccdmom ccdhist 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/misc'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/trans'
+rm -f *.o *.a *~ core ccdsmooth ccdmath ccdflip ccdfill ccdsharp ccdsharp3 ccdclip ccdintpol ccdmedian ccdpot ccdgen 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/trans'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/fits'
+rm -f *.o *.a core ccdfits fitsccd fitssplit scanfits fitstab fitshead fitsglue fits8to16 tabfits sdsfits  format
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/fits'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/wcs'
+rm -f *.o *.a *~ core wcs  testpos
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/wcs'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/image/rotcur'
+rm -f *.o *.a *~ core ccdvel rotcur rotcurshape rotcurtab pvtrace velcube velfit 
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image/rotcur'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/image'
+make[2]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/io'
+rm -f *.o *.a core mkorbit orbtest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/io'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
+rm -f *.o *.a core orbfour orbint orbintv orbplot otos perorb stoo orbsos orbstat orblist orbdim orblist
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/misc'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential'
+rm -f *.o *.a *~ core potlist rotcurves potccd potq potrot potsf potfortest
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential'
+make[3]: Entering directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential/data'
+rm -f *.o *.so *.a core   ctextest.*
+make[3]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit/potential/data'
+make[2]: Leaving directory `/home/adam/NEMO/nemo_cvs/src/orbit'
 make[1]: Leaving directory `/home/adam/NEMO/nemo_cvs/src'
-make: *** [cleansrc] Error 2
+Cleaning as much as one can to simulate a distribution
+rm -rf  /home/adam/NEMO/nemo_cvs/lib /home/adam/NEMO/nemo_cvs/obj /home/adam/NEMO/nemo_cvs/obj/bodytrans /home/adam/NEMO/nemo_cvs/obj/potential /home/adam/NEMO/nemo_cvs/obj/acc /home/adam/NEMO/nemo_cvs/obj/manip /home/adam/NEMO/nemo_cvs/obj/fit /py /py/modules opt opt/include opt/lib opt/bin
+rm -f NEMORC.local
