@@ -1,12 +1,49 @@
 /*
- * mpc.c: procedures for intializing and calculating the forces and
+ * mpc.c: procedures for intializing and calculating the acceleration and
  *             	potential of a combination of 3 potentials:
  *			Miyamoto Nagai Disk
  *			Plummer Sphere
  *			Caustic Ring Halo
+ *
+ * This file was adapted from mpl4.c created by bwillett. Below is the file history.
+ *
+ *      Refs: BT pp. 43-44; Miyamoto and Nagai PASJ 27, 533 (1975)
+ *	Miyamoto Potential Phi_m (R, z) = -GMdisk / sqrt (R^2+(a+sqrt(z^2+b^2))^2)
+ * 	        Parameters: a, b (shape parameters), M (mass); G=1
+ *              Names used: miya_ascal, miya_bscal, miya_mass
+ *	Plummer Potential Phi_p (r) = -GMsph / (r + rc) = -GMsph/ (sqrt(R^2 + z^2) + rc)
+ *		Parameters: rc, Msph; G=1
+ *		Names used: plu_rc, plu_mass
+ * 	Logarithmic Halo Phi_l (R, z) = vhalo^2 ln(R^2 + (z^2/q^2) + d^2)
+ *		Parameters: vhalo, q, d
+ *		Names used: vhalo, q, d
+ *
+ *  March 90 Stefano Casertano, University of Pittsburgh
+ * 10-Nov-90 inserted omega as first parameter for standard Nemo  PJT
+ *  6-oct-91 fixed bug - and made code accept both XYZ and XZY versions (pjt)
+ *  7-mar-92 merged sun and 3b1 versions once more			 pjt
+ *    oct-93 get_pattern
+ *  12-mar-07 bwillett changed from miyamoto.c to mpl.c
+ *  27-apr-07 bwillett modifying mpl3.c to change the acceleration fields
+ *  1-may-07 bwillett created mpl4.c - took out gravitational constant
+ *	all masses scaled as 1 M.U. = 222288.47 Ms 
+ *	length unit: 1 kpc time unit: 1 Gyr
+ *
+ *
+ * The Caustic Ring Halo acceleration is calculated using functions f1-f5, T1-T4, gfield_far, and gfield_close
+
+ * Refs: Tam, H. 2012, ArXiv e-prints
+ *       Duffy L. D., & Sikivie, P. 2008, Phys. Rev. D, 61, 063508
+ * 
+ * htam wrote original code to calculate gfield_close (uses functions f1-f5, T1-T4)
+ * jdumas combined gfield_close and gfield_far to calculate total caustic ring halo acceleration
+ * adam susser cleaned bloat in gfield_close(), separated three potentials into apply_*_pot functions
+ * The logarithmic halo calculation (variables vhalo, q, d, lpar, rcyl) is NOT used in this program
+ * 
+ * 
  * Version 1
  * 30-may-14
- * jdumas added flags on minimum values for rho and rpar to prevent nans at x, y, z=0
+ * jdumas added flags on minimum values for rho and rpar
  */
 
 #include <stdinc.h>
@@ -26,12 +63,14 @@ local double q = 1.0;
 local double d = 1.0;
 local const double G = 1.0;
 
-//Caustic flow number                   1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
+// properties of n=1-20 caustic ring flows from tables in Duffy & Sikivie (2008)
+// caustic flow number                  1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
 local const double a_n[]    = {1.0,  40.1,  20.1,  13.6,  10.4,  8.4,  7.0,  6.1,  5.3,  4.8,  4.3,  4.0,  3.7,  3.4,  3.2,  3.0,  2.8,  2.7,  2.5,  2.4,  2.3};
 local const double V_n[]    = {1.0,   517,   523,   523,   523,  522,  521,  521,  520,  517,  515,  512,  510,  507,  505,  503,  501,  499,  497,  496,  494};
 local const double rate_n[] = {1.0,    53,    23,    14,    10,  7.8,  6.3,  5.3,  4.5,  3.9,  3.4,  3.1,  2.8,  2.5,  2.3,  2.1,  2.0,  1.8,  1.7,  1.6,  1.5};
 local const double p_n[]    = {1.0,   0.3,   0.3,   1.0,   0.3, 0.15, 0.12,  0.6, 0.23, 0.41, 0.25, 0.19, 0.17, 0.11, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09};
 
+// constants defined for gfield_close calculation
 local const double ONE_THIRD = 1.0 / 3.0;
 local const double complex c1  = (double complex) 1.0;
 local const double complex c2  = (double complex) 2.0;
@@ -47,7 +86,7 @@ local const int X = 0;
 local const int Y = 1;
 local const int Z = 2;
 
-// Now let's compute the values of T at which the various poles cross the real axis
+// now let's compute the values of T at which the various poles cross the real axis
 inline double complex f1(double complex x) {
   return (2.0 + 4.0*x) / 3.0;
 }
@@ -111,34 +150,16 @@ inline double complex T4(double complex x, double complex z) {
   }
 }
 
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//*************CHANGE NAMES FOR Z, X*******************
-//                      |
-//                      |
-//                      v
-//  if ( (count != 4) && (count != 2) )
+// calculate gfield close to the nth caustic ring flow
+// two cases: within the caustic, all four roots are real, so we use T1 for d4 and T2,3,4 for d3
+// outside the caustic there should be two real roots and two complex roots
+// the vector intlimits hold the limits of integration; for the first case, intlimits is of length four; second, length two
 void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
+
 
   z = (double complex)(z / p_n[n]);
 
   double complex x = (double complex)(( rho - a_n[n] ) / p_n[n]);
-
-  // two cases; within the caustic, all four roots are real, so we use T1 for d4 and T2,3,4 for d3
-  // outside the caustic there should be two real roots and two complex roots
-  // the vector intlimits hold the limits of integration; for the first case, intlimits is of length four; second, length two
 
   double im[4] = {cabs(cimag(T1(x,z))), cabs(cimag(T2(x,z))), cabs(cimag(T3(x,z))), cabs(cimag(T4(x,z)))};
   double re[4] = {creal(T1(x,z))      , creal(T2(x,z))      , creal(T3(x,z))      , creal(T4(x,z))};
@@ -147,7 +168,7 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
   int i, j;
   double temp;
 
-  // get only the reals we want (Julie will make better comments)
+  // get only the roots we want
   for (i = 0; i < 4; ++i) {
     if (im[i] < TOLERANCE) {
       re[count] = re[i];    
@@ -155,9 +176,9 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
     }
   }
 
-  // sort in ascending order
+  // sort all 2 or 4 roots in ascending order
   for (i = 0; i < count - 1; ++i) {
-    for (j = i + 1; j < count; ++j) //LOSING THIS CURLY BRACE A GOOD IDEA?*******
+    for (j = i + 1; j < count; ++j)
       if (re[i] > re[j]) {
         temp  = re[i];
         re[i] = re[j];
@@ -165,7 +186,7 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
       }
   }
 
-  // roots stored in re[] and re2[] BAD COMMENT IS CONFUSING******
+  // roots stored in re[]
   double factor = -8.0 * M_PI * G * rate_n[n] * 4498.6589 / (rho * V_n[n] * 1.0226831);
 
   *rfield += factor * ( creal(f5(x,z,re[1])) - creal(f5(x,z,re[0])) - 0.5 ); // it seems that the answer is just off by 0.5, so we subtract it by hand
@@ -178,7 +199,7 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
 
 }
 
-// calculate gfield far away for nth flow
+// calculate gfield far away from the nth caustic ring flow
 void gfield_far(double rho, double z, int n, double *rfield, double *zfield) {
 
   // simulation units are kpc, gyr, ms=222288.47*Ms
@@ -211,6 +232,7 @@ void inipotential (int *npar, double *par, string name) {
   if (n>9) warning("mpl: only first 9 parameters recognized");
 }
 
+// galaxy disk calculations (acc[] and pot)
 void apply_miyamoto_pot(double *pos, double *acc, double *pot) {
   double qpar, apar, spar;
   qpar = hypot(pos[Z], miya_bscal);
@@ -224,6 +246,7 @@ void apply_miyamoto_pot(double *pos, double *acc, double *pot) {
   acc[Z] -= miya_mass * pos[Z] * apar / (qpar * pow(spar, 1.5));
 }
 
+// galaxy bulge calculations (acc[] and pot)
 void apply_plummer_pot(double *pos, double *acc, double *pot) {
   double ppar, rpar;
   ppar = sqrt(pos[X]*pos[X] + pos[Y]*pos[Y] + pos[Z]*pos[Z]) + plu_rc;
@@ -238,6 +261,7 @@ void apply_plummer_pot(double *pos, double *acc, double *pot) {
   acc[Z] -= plu_mass * pos[Z] / (rpar * ppar * ppar);
 }
 
+// galaxy caustic ring halo calculations (acc[] and pot)
 void apply_caustic_pot(double *pos, double *acc, double *pot) {
   double rho, z, rfield, zfield;
   double r, l, tr, tl; //EXPLAIN THESE PL0X
@@ -252,14 +276,18 @@ void apply_caustic_pot(double *pos, double *acc, double *pot) {
   if (rho < 0.000001) {
     rho = 0.000001;
   }
+
+  // calculate gfield at a position (x,y,z) by adding the contributions from all n caustic ring flows
   for (n = 1; n <= 20; ++n) {
-    // tricusp
+    //the caustic ring has a tricusp boundary (see Tam 2012)
+    // r (right), l (left), tr (top right), tl (top left)
+    // tr and tl are z coordinates, -tr and -tl are -z coordinates
     r  = (3.0 - sqrt( 1.0 + (8.0 / p_n[n]) * (rho - a_n[n]) )) / 4.0;
     l  = (3.0 + sqrt( 1.0 + (8.0 / p_n[n]) * (rho - a_n[n]) )) / 4.0;
     tr = 2.0 * p_n[n] * sqrt(pow(r, 3.0) * (1.0 - r));
     tl = 2.0 * p_n[n] * sqrt(pow(l, 3.0) * (1.0 - l));
 
-    // are we in the region of space where we use the close approximation?
+    //if position (rho,z) is inside ring use gfield_close, else use gfield_far
     if ( (z <= tr && z >= 0.0 && rho >= a_n[n] && rho <= a_n[n] + p_n[n])
      || (z >= tl  && z <= tr  && rho >= (a_n[n] - p_n[n] / 8.0) && rho <= a_n[n])
      || (z >= -tr && z <= 0.0 && rho >= a_n[n] && rho <= a_n[n] + p_n[n])
@@ -270,6 +298,8 @@ void apply_caustic_pot(double *pos, double *acc, double *pot) {
       gfield_far(rho, z, n, &rfield, &zfield);        
     }
   }
+
+  // calculate potential at a position (x,y,z) by adding the contributions from all n caustic ring flows
   for (n = 1; n <= 20; ++n) {
     double r_squared = rho*rho + z*z;
     double shift = a_n[n] + p_n[n] / 4.0;  //caustic radius shifted by 0.25 so that g goes to zero beyond a_n[n]
@@ -283,7 +313,9 @@ void apply_caustic_pot(double *pos, double *acc, double *pot) {
   acc[Z] += zfield;
 
 }
+
 void potential_double(int *ndim, double *pos, double *acc, double *pot, double *time) {
+
   *pot = 0;
   acc[X] = 0;
   acc[Y] = 0;
@@ -292,4 +324,9 @@ void potential_double(int *ndim, double *pos, double *acc, double *pot, double *
   apply_plummer_pot(pos, acc, pot);
   apply_caustic_pot(pos, acc, pot);
 }
+/*
+ * Unused stuff:
+ * log halo calculations (NOT used in this program)
+ * rcyl = hypot(pos[X],pos[Y]);
+ * lpar = (rcyl*rcyl) + ((pos[Z]/q)*(pos[Z]/q)) + (d*d);
 

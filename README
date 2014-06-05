@@ -1,0 +1,22 @@
+Provided here is the open-source mpc (Miyamoto Plummer Caustic)
+potential program for the stellar dynamics toolbox NEMO, along with a
+simple installation script and makefile test. To install the mpc
+potential, first ensure that you have a working version of NEMO. Then
+enter the nemo_caustics directory and run the install script with
+'source mkcaustics'. To ensure that the installation was successful, it
+is advised that you run the provided makefile test with
+'make -f Testfile all'.
+
+You may find additional information on the caustic potential in either
+the mpc documentation or in one of Pierre Sikivie's papers, such as the
+one found here: http://arxiv.org/abs/astro-ph/9902210
+
+List of authors: Julie Dumas, Adam Susser, Jeff Thompson
+
+Acknowledgements:
+        Pierre Sikivie: For creating the caustic ring theory and for
+                        deriving gfield_far()'s approximation
+        Heywood Tam:    For deriving and coding the initial version of
+                        gfield_close()
+
+Git repository: https://github.com/sussea/NEMO_caustics

@@ -46,13 +46,6 @@ mkorbit:
 	@$(EXEC) rm ${DIR}/orb.in
 	@$(EXEC) rm ${DIR}/orb.snapshot
 
-	@$(EXEC) mkorbit ${DIR}/orb.in x=40.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc 2>> ${DIR}/test.log
-	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
-	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
-
-	@$(EXEC) rm ${DIR}/orb.in
-	@$(EXEC) rm ${DIR}/orb.snapshot
-
 	@$(EXEC) mkorbit ${DIR}/orb.in x=0    y=0    z=0    vx=0 vy=0  vz=5 potname=mpc 2>> ${DIR}/test.log
 	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
 	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
@@ -70,6 +63,14 @@ mkorbit:
 	@$(EXEC) mkorbit ${DIR}/orb.in x=30.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc 2>> ${DIR}/test.log # this last one is used by orbint
 	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
 	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
+
+	@$(EXEC) rm ${DIR}/orb.in
+	@$(EXEC) rm ${DIR}/orb.snapshot
+
+	@$(EXEC) mkorbit ${DIR}/orb.in x=40.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc 2>> ${DIR}/test.log
+	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
+	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
+
 
 	@$(EXEC) diff ${DIR}/test_values ${DIR}/correct_mkorbit
 	@echo $@ : OK
