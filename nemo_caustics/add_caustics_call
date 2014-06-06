@@ -1,0 +1,90 @@
+DIR=$NEMO/src/orbit/potential/data
+
+INFILE=$DIR/$(basename ${1})
+OUTFILE=$DIR/$(basename ${1} .c)_caustics.c
+
+if [[ $INFILE != *.c ]]
+then
+  INFILE=${INFILE}.c
+fi
+cp $INFILE $OUTFILE
+
+searchphrase=void\ potential_
+functioncall="  apply_caustic_pot(pos, acc, pot);"
+stage="begin"
+
+while [[ ${stage} != "end" ]]
+do
+  stage="looking for potential"
+  line_num=0
+  while read -r line
+  do
+    line_num=`expr ${line_num} + 1`
+
+    #Find the search phrase (potential_ or the #DEFINE name)
+    if [[ ${stage} == "looking for potential" ]]
+    then
+      if [[ ${line} == *${searchphrase}* ]]
+      then
+        stage="looking for start curley bracket"
+        parentheses=0
+        # some lines end with \* comments like this *\, while others are #DEFINEs with \ at the end of each line. The latter needs to look different
+        if [[ ${line} == *\\ ]] && [[ ${line} != \*\\ ]] && [[ ${searchphrase} == void\ potential_ ]]
+        then
+          functioncall="  apply_caustic_pot(X, F, P); \\\\"
+        fi
+      fi
+    fi
+
+    #Found the phrase, determine if we can get a curley bracket
+    if [[ ${stage} == "looking for start curley bracket" ]]
+    then
+      parentheses=`expr ${parentheses} + $(grep -o "(" <<< "$line" | wc -l)`
+      parentheses=`expr ${parentheses} - $(grep -o ")" <<< "$line" | wc -l)`
+      if [[ ${parentheses} == 0 ]]
+      then
+        curleybrackets=$(grep -o "{" <<< "$line" | wc -l)
+        if [[ ${curleybrackets} != 0 ]]
+        then
+          stage="looking for end curley bracket"
+        fi
+        DEFINEpot=`echo $line | sed -n "s/.*) \([A-Z_]*POT\).*/\1/p"`
+        if [[ $DEFINEpot != "" ]]
+        then
+          searchphrase=$DEFINEpot
+          functioncall=${functioncall}\ \\\\
+          stage="read through everything again looking for a new searchphrase"
+        fi
+      fi
+    fi
+
+    #Found the first curley bracket, now find its end
+    if [[ ${stage} == "looking for end curley bracket" ]]
+    then
+      curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
+      curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
+      if [[ ${curleybrackets} == 1 ]]
+      then
+        sed  -i "${line_num} i\\$functioncall" $OUTFILE
+        line_num=`expr $line_num + 1`
+        stage="looking for potential"
+      fi
+    fi
+  done < $OUTFILE
+  if [[ $stage == "looking for start curley bracket" ]] || [[ $stage == "looking for potential" ]]
+  then
+    stage="end"
+  fi
+done
+
+echo `basename $OUTFILE` complete, making shared object
+
+cp caustics.c ${DIR}
+cd ${DIR}
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o `basename ${OUTFILE} .c`.o ${OUTFILE}
+gcc -fPIC -c -o caustics.o caustics.c
+gcc --shared -o `basename ${OUTFILE} .c`.so `basename ${OUTFILE} .c`.o caustics.o
+cp `basename ${OUTFILE} .c`.so $NEMOOBJ/potential/
+cd - > /dev/null
+
+echo "shared object `basename $OUTFILE .c`.so complete."
