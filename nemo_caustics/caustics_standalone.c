@@ -1,12 +1,7 @@
 /*
- * This file provides a caustic ring halo potential for use in stellar models. To add the
- * caustic ring potential to your own potential, simply '#include' this file and add a
- * call to apply_caustics_pot in your potential file. The apply_caustics_pot function
- * takes in your position and acceleration in x y z as well as your potential, and adds
- * the contribution due to caustic rings to your acceleration and potential.
- * An example of how to use this code should be provided in the "mpc.c" file, and more
- * details may be found in the README. A stand-alone caustics potential can be found in
- * caustics_standalone.c
+ * This file provides a stand-alone caustic ring halo potential for use in stellar models.
+ * a combinable version can be found in caustics.c
+ *
  *
  * Refs: Tam, H. 2012, ArXiv e-prints
  *       Duffy L. D., & Sikivie, P. 2008, Phys. Rev. D, 61, 063508
@@ -181,10 +176,13 @@ void gfield_far(double rho, double z, int n, double *rfield, double *zfield) {
 }
 
 // call this from your own potential file (double version)
-void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
+void potential_double(double *pos, double *acc, double *pot) {
   double rho, z, rfield, zfield;
   double r, l, tr, tl; // r (right), l (left), tr (top right), tl (top left)
   int n;
+
+  acc[X] = 0; acc[Y] = 0; acc[Z] = 0;
+  *pot = 0;
 
   rfield = 0.0;
   zfield = 0.0;
@@ -232,7 +230,7 @@ void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
 
 }
 // call this from your own potential file (float version)
-void apply_caustic_pot_float(float *pos, float *acc, float *pot) {
+void potential_float(float *pos, float *acc, float *pot) {
   double pos_d[3];
   double acc_d[3];
   double pot_d = 0;
@@ -242,10 +240,10 @@ void apply_caustic_pot_float(float *pos, float *acc, float *pot) {
 
   apply_caustic_pot_double(pos_d,acc_d,&pot_d);
 
-  acc[X] += (float) acc_d[X];
-  acc[Y] += (float) acc_d[Y];
-  acc[Z] += (float) acc_d[Z];
-  *pot += (float) pot_d;
+  acc[X] = (float) acc_d[X];
+  acc[Y] = (float) acc_d[Y];
+  acc[Z] = (float) acc_d[Z];
+  *pot = (float) pot_d;
 
 }
 

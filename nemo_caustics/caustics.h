@@ -25,7 +25,7 @@
 #include <complex.h>
 #include <stdio.h>
 
-static double G = 1.0;
+static double G_caustics = 1.0;
 
 // properties of n=1-20 caustic ring flows from tables in Duffy & Sikivie (2008)
 // caustic flow number            1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
@@ -46,9 +46,9 @@ static double II = (double complex) 1.0*I;
 static double TOLERANCE  = 0.00001;
 static double TOLERANCE2 = 0.001;
 
-static int X = 0;
-static int Y = 1;
-static int Z = 2;
+static int X_caustics = 0;
+static int Y_caustics = 1;
+static int Z_caustics = 2;
 
 // now let's compute the values of T at which the various poles cross the real axis
 inline double complex f1(double complex x) {
@@ -151,7 +151,7 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
   }
 
   // roots stored in re[]
-  double factor = -8.0 * M_PI * G * rate_n[n] * 4498.6589 / (rho * V_n[n] * 1.0226831);
+  double factor = -8.0 * M_PI * G_caustics * rate_n[n] * 4498.6589 / (rho * V_n[n] * 1.0226831);
 
   *rfield += factor * ( creal(f5(x,z,re[1])) - creal(f5(x,z,re[0])) - 0.5 ); // it seems that the answer is just off by 0.5, so we subtract it by hand
   *zfield += factor * ( cimag(f5(x,z,re[1])) - cimag(f5(x,z,re[0])) );
@@ -169,7 +169,7 @@ void gfield_far(double rho, double z, int n, double *rfield, double *zfield) {
   // simulation units are kpc, gyr, ms=222288.47*Ms
   double r_squared = rho*rho + z*z;
   double shift = a_n[n] + (p_n[n] / 4.0);
-  double A_n = (8.0 * M_PI * G * rate_n[n] * 4498.6589) / (V_n[n] * 1.0226831);  //convert from M_sun/yr*sr to m_sim/gyr*sr with 4498 and km/s to kpc/gyr with 1.0226
+  double A_n = (8.0 * M_PI * G_caustics * rate_n[n] * 4498.6589) / (V_n[n] * 1.0226831);  //convert from M_sun/yr*sr to m_sim/gyr*sr with 4498 and km/s to kpc/gyr with 1.0226
 
   // caustic radius shifted by 0.25 so that g goes to zero beyond a_n[n]
   double s = hypot(r_squared - shift*shift, 2.0 * shift * z);
@@ -188,8 +188,8 @@ void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
 
   rfield = 0.0;
   zfield = 0.0;
-  rho = sqrt(pos[X]*pos[X] + pos[Y]*pos[Y]);
-  z = pos[Z];
+  rho = sqrt(pos[X_caustics]*pos[X_caustics] + pos[Y_caustics]*pos[Y_caustics]);
+  z = pos[Z_caustics];
 
   // rho cannot be zero (causes nan in near field and ax and ay at origin)
   if (rho < 0.000001) {
@@ -221,14 +221,14 @@ void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
   for (n = 1; n <= 20; ++n) {
     double r_squared = rho*rho + z*z;
     double shift = a_n[n] + p_n[n] / 4.0;  //caustic radius shifted by 0.25 so that g goes to zero beyond a_n[n]
-    double A_n = (8.0 * M_PI * G * rate_n[n] * 4498.6589) / (V_n[n] * 1.0226831);  //convert from M_sun/yr*sr to m_sim/gyr*sr with 4498 and km/s to kpc/gyr with 1.0226
+    double A_n = (8.0 * M_PI * G_caustics * rate_n[n] * 4498.6589) / (V_n[n] * 1.0226831);  //convert from M_sun/yr*sr to m_sim/gyr*sr with 4498 and km/s to kpc/gyr with 1.0226
     double s = hypot(r_squared - shift*shift, 2.0 * shift *z);
     *pot += (A_n / 2.0) * log(1.0 + ( s / (2.0 * a_n[n]*a_n[n]) ));
   }
 
-  acc[X] += rfield * pos[X] / rho;
-  acc[Y] += rfield * pos[Y] / rho;
-  acc[Z] += zfield;
+  acc[X_caustics] += rfield * pos[X_caustics] / rho;
+  acc[Y_caustics] += rfield * pos[Y_caustics] / rho;
+  acc[Z_caustics] += zfield;
 
 }
 // call this from your own potential file (float version)
@@ -237,14 +237,14 @@ void apply_caustic_pot_float(float *pos, float *acc, float *pot) {
   double acc_d[3];
   double pot_d = 0;
 
-  pos_d[X] = (double) pos[X]; pos_d[Y] = (double) pos[Y]; pos_d[Z] = (double) pos[Z];
-  acc_d[X] = 0;               acc_d[Y] = 0;               acc_d[Z] = 0;
+  pos_d[X_caustics] = (double) pos[X_caustics]; pos_d[Y_caustics] = (double) pos[Y_caustics]; pos_d[Z_caustics] = (double) pos[Z_caustics];
+  acc_d[X_caustics] = 0;                        acc_d[Y_caustics] = 0;                        acc_d[Z_caustics] = 0;
 
   apply_caustic_pot_double(pos_d,acc_d,&pot_d);
 
-  acc[X] += (float) acc_d[X];
-  acc[Y] += (float) acc_d[Y];
-  acc[Z] += (float) acc_d[Z];
+  acc[X_caustics] += (float) acc_d[X_caustics];
+  acc[Y_caustics] += (float) acc_d[Y_caustics];
+  acc[Z_caustics] += (float) acc_d[Z_caustics];
   *pot += (float) pot_d;
 
 }

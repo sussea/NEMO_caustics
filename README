@@ -1,11 +1,18 @@
-Provided here is the open-source mpc (Miyamoto Plummer Caustic)
-potential program for the stellar dynamics toolbox NEMO, along with a
-simple installation script and makefile test. To install the mpc
-potential, first ensure that you have a working version of NEMO. Then
-enter the nemo_caustics directory and run the install script with
-'source mkcaustics'. To ensure that the installation was successful, it
-is advised that you run the provided makefile test with
-'make -f Testfile all'.
+Provided here is the open-source caustics.c potential file for the
+stellar dynamics toolbox NEMO. Included is also a script to combine
+this potential with potential files that model other parts of the
+galaxy. This script can be run with 'source add_caustics_call
+potentialname'. The script merely find yours file in
+$NEMO/src/orbit/potential/data, adds a function call, recompiles, and
+links objects. Some alternative methods for combining potentials are
+mentioned in the comments at the top of the add_caustics_call file.
+Also included is an example potential to combine with caustics.c,
+mpc.c, and an example of the expected result of combining,
+mpc_caustics.c. This file combines the Miyamoto, Plummer, and
+(assuming you combine properly) caustic potentials into one
+mpc_caustics file. You may test that everything is working properly by
+running the add_caustics_call script on mpc.c (not mpc_caustics.c),
+and then running 'make -f Testfile all'.
 
 You may find additional information on the caustic potential in either
 the mpc documentation or in one of Pierre Sikivie's papers, such as the

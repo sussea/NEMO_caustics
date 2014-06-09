@@ -1,90 +1,184 @@
+# This is a script for easily combining the caustics potential with another NEMO potential.
+# It was written with some assumptions about the form of the potential's code which match
+# NEMO's default potentials list. It may not work for potentials not included with
+# vanilla NEMO. If this script does not work, it is simple enough to link caustics.c with
+# your potential. Just add calls to the apply_caustic_pot_* functions in a copy of the
+# other potential's apply_caustic_pot_* functions, compile both c files as .o objects,
+# combine them into one .so shared object, and shove it where NEMO can find it. The
+# following is an example of the commands you would want for manual combination:
+#  cp yourpotential.c yourpotential_caustics.c
+#  gedit yourpotential_caustics.c (to add the function calls)
+#  gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o yourpotential_caustics.o yourpotential_caustics.c
+#  gcc -fPIC -c -o caustics.o caustics.c
+#  gcc --shared -o yourpotential_caustics.so yourpotential_caustics.o caustics.o
+#  cp yourpotential_caustics.so $NEMOOBJ/potential/
+# Alternatively, you can #include the caustics.h header file and add a function call
+# to caustics.h in your potential file.
+
+
 DIR=$NEMO/src/orbit/potential/data
 
-INFILE=$DIR/$(basename ${1})
-OUTFILE=$DIR/$(basename ${1} .c)_caustics.c
+INFILEBASE=$(basename ${1} .c)
+OUTFILEBASE=$(basename ${1} .c)_caustics
+INFILE=$DIR/${INFILEBASE}.c
+OUTFILE=$DIR/${OUTFILEBASE}.c
 
-if [[ $INFILE != *.c ]]
+cp ${INFILE} ${OUTFILE} 2> /dev/null
+if [[ $? != 0 ]]
 then
-  INFILE=${INFILE}.c
+  echo "Error: could not copy file '${INFILEBASE}.c' in '${DIR}', does it exist?"
+  return
 fi
-cp $INFILE $OUTFILE
 
-searchphrase=void\ potential_
-functioncall="  apply_caustic_pot(pos, acc, pot);"
-stage="begin"
+stage="findphrase"
 
-while [[ ${stage} != "end" ]]
+finished_double=0
+finished_float=0
+
+line_num=1
+
+# Read the entire potential file, look for stuff in it, and modify it accordingly.
+#  case 1: two ordinary potential_* calls, just shove our caustics call at the end.
+#  case 2: they use #define potential_##TYPE (like in nfw3.c), use apply_caustic_pot_##TYPE
+#  case 3: potential file #define's all but type declarations by #define'ing beginning and
+#          end of double/float curley brackets in one place and calling definition twice.
+#          This makes it impossible to add two different calls for the double/float
+#          caustics function since everything is confined to that define. Move curley
+#          brackets out of the define so that we can have our function call outside of the
+#          define but also inside the brackets. Most paintful case.
+while read -r line
 do
-  stage="looking for potential"
-  line_num=0
-  while read -r line
-  do
-    line_num=`expr ${line_num} + 1`
-
-    #Find the search phrase (potential_ or the #DEFINE name)
-    if [[ ${stage} == "looking for potential" ]]
-    then
-      if [[ ${line} == *${searchphrase}* ]]
-      then
-        stage="looking for start curley bracket"
-        parentheses=0
-        # some lines end with \* comments like this *\, while others are #DEFINEs with \ at the end of each line. The latter needs to look different
-        if [[ ${line} == *\\ ]] && [[ ${line} != \*\\ ]] && [[ ${searchphrase} == void\ potential_ ]]
-        then
-          functioncall="  apply_caustic_pot(X, F, P); \\\\"
-        fi
-      fi
-    fi
-
-    #Found the phrase, determine if we can get a curley bracket
-    if [[ ${stage} == "looking for start curley bracket" ]]
-    then
-      parentheses=`expr ${parentheses} + $(grep -o "(" <<< "$line" | wc -l)`
-      parentheses=`expr ${parentheses} - $(grep -o ")" <<< "$line" | wc -l)`
-      if [[ ${parentheses} == 0 ]]
-      then
-        curleybrackets=$(grep -o "{" <<< "$line" | wc -l)
-        if [[ ${curleybrackets} != 0 ]]
-        then
-          stage="looking for end curley bracket"
-        fi
-        DEFINEpot=`echo $line | sed -n "s/.*) \([A-Z_]*POT\).*/\1/p"`
-        if [[ $DEFINEpot != "" ]]
-        then
-          searchphrase=$DEFINEpot
-          functioncall=${functioncall}\ \\\\
-          stage="read through everything again looking for a new searchphrase"
-        fi
-      fi
-    fi
-
-    #Found the first curley bracket, now find its end
-    if [[ ${stage} == "looking for end curley bracket" ]]
-    then
-      curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
-      curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
-      if [[ ${curleybrackets} == 1 ]]
-      then
-        sed  -i "${line_num} i\\$functioncall" $OUTFILE
-        line_num=`expr $line_num + 1`
-        stage="looking for potential"
-      fi
-    fi
-  done < $OUTFILE
-  if [[ $stage == "looking for start curley bracket" ]] || [[ $stage == "looking for potential" ]]
+  if [[ ${stage} == "findphrase" ]]
   then
-    stage="end"
-  fi
-done
+    if [[ ${line} == *#define\ *POT*\(TYPE\)* ]]
+    then
+      stage="paste before end curley bracket 1"
+      functioncall="  apply_caustic_pot_##TYPE(X, F, P); \\\\"
+      curleybrackets=0
 
-echo `basename $OUTFILE` complete, making shared object
+      finished_double=1
+      finished_float=1
+
+    elif [[ ${line} == *#define*POT* ]]
+    then
+      stage="remove outer curley brackets from define 1"
+      curleybrackets=0
+
+    elif [[ ${line} == *void\ potential_double* ]] && [[ ${finished_double} != 1 ]]
+    then
+      stage="paste before end curley bracket 1"
+      functioncall="  apply_caustic_pot_double(pos, acc, pot);"
+      curleybrackets=0
+
+      finished_double=1
+
+    elif [[ ${line} == *void\ potential_float* ]] && [[ ${finished_float} != 1 ]]
+    then
+      stage="paste before end curley bracket 1"
+      functioncall="  apply_caustic_pot_float(pos, acc, pot);"
+      curleybrackets=0
+
+      finished_float=1
+    fi
+  fi
+
+  if [[ ${stage} == "paste before end curley bracket 1" ]]
+  then
+    curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
+    if [[ ${curleybrackets} == 1 ]]
+    then
+      stage="paste before end curley bracket 2"
+      curleybrackets=0
+    fi
+  fi
+
+  if [[ ${stage} == "paste before end curley bracket 2" ]]
+  then
+    curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
+    curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
+    if [[ ${curleybrackets} == 0 ]]
+    then
+      stage="findphrase"
+
+      sed  -i "${line_num} i\\$functioncall" $OUTFILE
+      line_num=`expr $line_num + 1`
+    fi
+  fi
+
+  if [[ ${stage} == "remove outer curley brackets from define 1" ]]
+  then
+    curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
+    if [[ ${curleybrackets} == 1 ]]
+    then
+      stage="remove outer curley brackets from define 2"
+      curleybrackets=0
+
+      sed -i "${line_num}s/\(.*\){\(.*\)/\1\2/" $OUTFILE
+    fi
+  fi
+
+  if [[ ${stage} == "remove outer curley brackets from define 2" ]]
+  then
+    curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
+    curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
+    if [[ ${curleybrackets} == 0 ]]
+    then
+      stage="edit potential_s"
+
+      sed -i "${line_num}s/\(.*\)}\(.*\)/\1\2/" $OUTFILE
+    fi
+  fi
+
+  if [[ ${stage} == "edit potential_s" ]]
+  then
+    if [[ ${line} == *void\ potential_double* ]]
+    then
+      functioncall="  apply_caustic_pot_double(pos, acc, pot);"
+
+    elif [[ ${line} == *void\ potential_float* ]]
+    then
+      functioncall="  apply_caustic_pot_float(pos, acc, pot);"
+
+    elif [[ ${line} == *\)\ *POT* ]]
+    then
+      potstatement=`echo $line | sed -n "s/.*) \([A-Z_]*POT\).*/\1/p"`
+      sed -i "${line_num}s/\(.*\)\(${potstatement}\)\(.*\)/\1{\2${functioncall}}\3/" $OUTFILE
+    fi
+  fi
+  line_num=`expr $line_num + 1`
+done < $OUTFILE
+
+echo ${OUTFILEBASE}.c complete, making shared object...
 
 cp caustics.c ${DIR}
+if [[ $? != 0 ]]
+then
+  return
+fi
 cd ${DIR}
-gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o `basename ${OUTFILE} .c`.o ${OUTFILE}
+
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o ${OUTFILEBASE}.o ${OUTFILEBASE}.c
+if [[ $? != 0 ]]
+then
+  cd - > /dev/null
+  return
+fi
+
 gcc -fPIC -c -o caustics.o caustics.c
-gcc --shared -o `basename ${OUTFILE} .c`.so `basename ${OUTFILE} .c`.o caustics.o
-cp `basename ${OUTFILE} .c`.so $NEMOOBJ/potential/
+if [[ $? != 0 ]]
+then
+  cd - > /dev/null
+  return
+fi
+
+gcc --shared -o ${OUTFILEBASE}.so ${OUTFILEBASE}.o caustics.o
+if [[ $? != 0 ]]
+then
+  cd - > /dev/null
+  return
+fi
+
+cp ${OUTFILEBASE}.so $NEMOOBJ/potential/
 cd - > /dev/null
 
-echo "shared object `basename $OUTFILE .c`.so complete."
+echo shared object ${OUTFILEBASE}.so complete, you can now use potential \'${OUTFILEBASE}\'.
