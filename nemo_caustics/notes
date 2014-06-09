@@ -1,8 +1,0 @@
-caustics.c in float!!!!!!!!!!!
-
-1. Find potential_*, count how many there are
-  if there are none, then complain.
-2. Count the parentheses in function declaration for end.
-  if we hit curley brackets before letters/numbers, count braces, then paste before end declaration
-  if we don't, read the word as a definition, find that, and then find curley bracket and do like above
-    for each of these, if they have a \ without anything but a space at the end of lines, then use one of those at the end of the line.
