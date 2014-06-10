@@ -15,8 +15,8 @@ running the add_caustics_call script on mpc.c (not mpc_caustics.c),
 and then running 'make -f Testfile all'.
 
 You may find additional information on the caustic potential in either
-the mpc documentation or in one of Pierre Sikivie's papers, such as the
-one found here: http://arxiv.org/abs/astro-ph/9902210
+the caustics documentation or in one of Pierre Sikivie's papers, such
+as the one found here: http://arxiv.org/abs/astro-ph/9902210
 
 List of authors: Julie Dumas, Adam Susser, Jeff Thompson
 
