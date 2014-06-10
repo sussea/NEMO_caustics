@@ -20,6 +20,7 @@ all:    $(BIN)
 potlist: 
 	@echo Running $@
 	@echo "If there's an error, check ${DIR}/test.log"
+
 	@$(EXEC) potlist potname=mpc_caustics x=1      y=2        z=3        format=%.4G  > ${DIR}/test_values 2>  ${DIR}/test.log
 	@$(EXEC) potlist potname=mpc_caustics x=0      y=0        z=0        format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
 	@$(EXEC) potlist potname=mpc_caustics x=30.1   y=0        z=0        format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
@@ -34,6 +35,8 @@ potlist:
 
 mkorbit:
 	@echo Running $@
+	@echo "If there's an error, check ${DIR}/test.log"
+
 	@$(EXEC) touch ${DIR}/orb.in
 	@$(EXEC) touch ${DIR}/orb.snapshot
 	@$(EXEC) rm ${DIR}/orb.in
@@ -60,14 +63,14 @@ mkorbit:
 	@$(EXEC) rm ${DIR}/orb.in
 	@$(EXEC) rm ${DIR}/orb.snapshot
 
-	@$(EXEC) mkorbit ${DIR}/orb.in x=30.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc_caustics 2>> ${DIR}/test.log # this last one is used by orbint
+	@$(EXEC) mkorbit ${DIR}/orb.in x=30.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc_caustics 2>> ${DIR}/test.log
 	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
 	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
 
 	@$(EXEC) rm ${DIR}/orb.in
 	@$(EXEC) rm ${DIR}/orb.snapshot
 
-	@$(EXEC) mkorbit ${DIR}/orb.in x=40.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc_caustics 2>> ${DIR}/test.log
+	@$(EXEC) mkorbit ${DIR}/orb.in x=40.1 y=0    z=0    vx=5 vy=20 vz=5 potname=mpc_caustics 2>> ${DIR}/test.log # this last one is used by orbint
 	@$(EXEC) otos ${DIR}/orb.in ${DIR}/orb.snapshot 2>> ${DIR}/test.log
 	@$(EXEC) snapprint in=${DIR}/orb.snapshot format=%.4G >> ${DIR}/test_values 2>> ${DIR}/test.log
 
@@ -75,9 +78,10 @@ mkorbit:
 	@$(EXEC) diff ${DIR}/test_values ${DIR}/correct_mkorbit
 	@echo $@ : OK
 
-# The orbint test assumes the orb.in at the end of the mkorbit test
+# The orbint test assumes the orb.in from the end of the mkorbit test exists
 orbint:
 	@echo Running $@
+	@echo "If there's an error, check ${DIR}/test.log"
 
 	@if [ ! -f ${DIR}/orb.in ] ; \
 	then \

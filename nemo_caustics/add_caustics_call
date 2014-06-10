@@ -32,13 +32,14 @@ fi
 
 stage="findphrase"
 
-finished_double=0
-finished_float=0
+finished_double=0 # can we stop looking for a way to add apply_caustic_pot_double?
+finished_float=0 # can we stop looking for a way to add apply_caustic_pot_float?
 
 line_num=1
 
+
 # Read the entire potential file, look for stuff in it, and modify it accordingly.
-#  case 1: two ordinary potential_* calls, just shove our caustics call at the end.
+#  case 1: two ordinary potential_* calls, just shove in our caustics calls at the end.
 #  case 2: they use #define potential_##TYPE (like in nfw3.c), use apply_caustic_pot_##TYPE
 #  case 3: potential file #define's all but type declarations by #define'ing beginning and
 #          end of double/float curley brackets in one place and calling definition twice.
@@ -50,7 +51,7 @@ while read -r line
 do
   if [[ ${stage} == "findphrase" ]]
   then
-    if [[ ${line} == *#define\ *POT*\(TYPE\)* ]]
+    if [[ ${line} == *#define\ *POT*\(TYPE\)* ]] # case 2
     then
       stage="paste before end curley bracket 1"
       functioncall="  apply_caustic_pot_##TYPE(X, F, P); \\\\"
@@ -59,12 +60,12 @@ do
       finished_double=1
       finished_float=1
 
-    elif [[ ${line} == *#define*POT* ]]
+    elif [[ ${line} == *#define*POT* ]] # case 3
     then
       stage="remove outer curley brackets from define 1"
       curleybrackets=0
 
-    elif [[ ${line} == *void\ potential_double* ]] && [[ ${finished_double} != 1 ]]
+    elif [[ ${line} == *void\ potential_double* ]] && [[ ${finished_double} != 1 ]] # case 1
     then
       stage="paste before end curley bracket 1"
       functioncall="  apply_caustic_pot_double(pos, acc, pot);"
@@ -72,7 +73,7 @@ do
 
       finished_double=1
 
-    elif [[ ${line} == *void\ potential_float* ]] && [[ ${finished_float} != 1 ]]
+    elif [[ ${line} == *void\ potential_float* ]] && [[ ${finished_float} != 1 ]] # case 1
     then
       stage="paste before end curley bracket 1"
       functioncall="  apply_caustic_pot_float(pos, acc, pot);"
@@ -82,7 +83,7 @@ do
     fi
   fi
 
-  if [[ ${stage} == "paste before end curley bracket 1" ]]
+  if [[ ${stage} == "paste before end curley bracket 1" ]] # finds first open curley bracket
   then
     curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
     if [[ ${curleybrackets} == 1 ]]
@@ -92,7 +93,7 @@ do
     fi
   fi
 
-  if [[ ${stage} == "paste before end curley bracket 2" ]]
+  if [[ ${stage} == "paste before end curley bracket 2" ]] # finds matching closing curley bracket
   then
     curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
     curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
@@ -105,7 +106,7 @@ do
     fi
   fi
 
-  if [[ ${stage} == "remove outer curley brackets from define 1" ]]
+  if [[ ${stage} == "remove outer curley brackets from define 1" ]] # finds and removes first open curley bracket
   then
     curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
     if [[ ${curleybrackets} == 1 ]]
@@ -117,7 +118,7 @@ do
     fi
   fi
 
-  if [[ ${stage} == "remove outer curley brackets from define 2" ]]
+  if [[ ${stage} == "remove outer curley brackets from define 2" ]] # finds and removes matching closing curley bracket
   then
     curleybrackets=`expr ${curleybrackets} + $(grep -o "{" <<< "$line" | wc -l)`
     curleybrackets=`expr ${curleybrackets} - $(grep -o "}" <<< "$line" | wc -l)`
@@ -129,7 +130,7 @@ do
     fi
   fi
 
-  if [[ ${stage} == "edit potential_s" ]]
+  if [[ ${stage} == "edit potential_s" ]] # adds back the curley brackets lost in last 2 stages, but around call to #define'd area; also adds func calls
   then
     if [[ ${line} == *void\ potential_double* ]]
     then
@@ -147,38 +148,29 @@ do
   fi
   line_num=`expr $line_num + 1`
 done < $OUTFILE
+echo Potential combination file \'${OUTFILEBASE}.c\' complete, making shared object...
 
-echo ${OUTFILEBASE}.c complete, making shared object...
 
-cp caustics.c ${DIR}
+# All the compiling nonsense. Make sure to stop everything if an error is thrown.
+cp caustics.c ${DIR} 2> /dev/null
 if [[ $? != 0 ]]
 then
-  return
+  echo "Warning: Could not move caustics.c into ${DIR}. Ignoring in case it is already in there."
 fi
+
 cd ${DIR}
-
-gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o ${OUTFILEBASE}.o ${OUTFILEBASE}.c
-if [[ $? != 0 ]]
-then
-  cd - > /dev/null
-  return
-fi
+if [[ $? != 0 ]]; then return; fi
 
 gcc -fPIC -c -o caustics.o caustics.c
-if [[ $? != 0 ]]
-then
-  cd - > /dev/null
-  return
-fi
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o ${OUTFILEBASE}.o ${OUTFILEBASE}.c
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
 gcc --shared -o ${OUTFILEBASE}.so ${OUTFILEBASE}.o caustics.o
-if [[ $? != 0 ]]
-then
-  cd - > /dev/null
-  return
-fi
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
 cp ${OUTFILEBASE}.so $NEMOOBJ/potential/
 cd - > /dev/null
 
-echo shared object ${OUTFILEBASE}.so complete, you can now use potential \'${OUTFILEBASE}\'.
+echo Shared object \'${OUTFILEBASE}.so\' complete, you can now use potential \'${OUTFILEBASE}\'.
