@@ -35,29 +35,31 @@
  * Refs: Tam, H. 2012, ArXiv e-prints
  *       Duffy L. D., & Sikivie, P. 2008, Phys. Rev. D, 61, 063508
  * 
- * The logarithmic halo calculation (variables vhalo, q, d, lpar, rcyl) is NOT used in this program
+ * The logarithmic halo calculation (variables vhalo, q, d, lpar, rcyl) are NOT used in this program
  */
 
 #include <stdinc.h>
-#include <potential_float.h>
 #include <math.h>
 #include <stdio.h>
 #include <complex.h>
+#include "caustics2.h"
 
 local double omega = 0.0;		/* pattern speed */
 local double miya_ascal = 0.0;
 local double miya_bscal = 1.0;
-local double miya_mass  = 1.0;
-local double plu_rc   = 1.0;
+local double miya_mass = 1.0;
+local double plu_rc = 1.0;
 local double plu_mass = 1.0;
 local double vhalo = 1.0;
 local double q = 1.0;
 local double d = 1.0;
-local const double G = 1.0;
 
-local const int X = 0;
-local const int Y = 1;
-local const int Z = 2;
+const double G = 1.0;
+
+#define X 0
+#define Y 1
+#define Z 2
+
 
 void inipotential (int *npar, double *par, string name) {
   int n;
@@ -93,7 +95,7 @@ void apply_plummer_pot(double *pos, double *acc, double *pot) {
   double ppar, rpar;
   ppar = sqrt(pos[X]*pos[X] + pos[Y]*pos[Y] + pos[Z]*pos[Z]) + plu_rc;
   rpar = ppar - plu_rc;
-  if (rpar < 0.000001) // mke sure rpar != zero (causes nan in accx accy accz at origin)
+  if (rpar < 0.000001) // make sure rpar != zero (causes nan in accx accy accz at origin)
     rpar = 0.000001;
 
   *pot -= plu_mass / ppar;
@@ -112,7 +114,7 @@ void potential_double(int *ndim, double *pos, double *acc, double *pot, double *
   acc[Z] = 0;
   apply_miyamoto_pot(pos, acc, pot);
   apply_plummer_pot(pos, acc, pot);
-  apply_caustic_pot(pos, acc, pot);
+  apply_caustic_pot_double(pos, acc, pot);
 }
 /*
  * Unused stuff:

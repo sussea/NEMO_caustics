@@ -1,7 +1,7 @@
 /*
  * This file provides a caustic ring halo potential for use in stellar models. To add the
  * caustic ring potential to your own potential, simply '#include' this file and add a
- * call to apply_caustics_pot in your potential file. The apply_caustics_pot function
+ * call to applY_pot in your potential file. The applY_pot function
  * takes in your position and acceleration in x y z as well as your potential, and adds
  * the contribution due to caustic rings to your acceleration and potential.
  * An example of how to use this code should be provided in the "mpc.c" file, and more
@@ -21,34 +21,43 @@
  * adam susser cleaned bloat in gfield_close()
  */
 
+#include <stdinc.h>
+#include <potential_float.h>
 #include <math.h>
-#include <complex.h>
 #include <stdio.h>
+#include <complex.h>
 
-static double G = 1.0;
+//local double G = 1.0;
+local double omega = 0.0;		/* pattern speed */
+local double miya_ascal = 0.0;
+local double miya_bscal = 1.0;
+local double miya_mass = 1.0;
+local double plu_rc = 1.0;
+local double plu_mass = 1.0;
+local double vhalo = 1.0;
+local double q = 1.0;
+local double d = 1.0;
 
-// properties of n=1-20 caustic ring flows from tables in Duffy & Sikivie (2008)
-// caustic flow number            1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
-static double a_n[]    = {1.0,  40.1,  20.1,  13.6,  10.4,  8.4,  7.0,  6.1,  5.3,  4.8,  4.3,  4.0,  3.7,  3.4,  3.2,  3.0,  2.8,  2.7,  2.5,  2.4,  2.3};
-static double V_n[]    = {1.0,   517,   523,   523,   523,  522,  521,  521,  520,  517,  515,  512,  510,  507,  505,  503,  501,  499,  497,  496,  494};
-static double rate_n[] = {1.0,    53,    23,    14,    10,  7.8,  6.3,  5.3,  4.5,  3.9,  3.4,  3.1,  2.8,  2.5,  2.3,  2.1,  2.0,  1.8,  1.7,  1.6,  1.5};
-static double p_n[]    = {1.0,   0.3,   0.3,   1.0,   0.3, 0.15, 0.12,  0.6, 0.23, 0.41, 0.25, 0.19, 0.17, 0.11, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09};
+const double G = 1.0;
+const double a_n[] = {1.0,40.1,20.1,13.6,10.4,8.4,7.0,6.1,5.3,4.8,4.3,4.0,3.7,3.4,3.2,3.0,2.8,2.7,2.5,2.4,2.3};
+const double V_n[] = {1.0,517,523,523,523,522,521,521,520,517,515,512,510,507,505,503,501,499,497,496,494};
+const double rate_n[] = {1.0,53,23,14,10,7.8,6.3,5.3,4.5,3.9,3.4,3.1,2.8,2.5,2.3,2.1,2.0,1.8,1.7,1.6,1.5};
+const double p_n[] = {1.0,0.3,0.3,1.0,0.3,0.15,0.12,0.6,0.23,0.41,0.25,0.19,0.17,0.11,0.09,0.09,0.09,0.09,0.09,0.09,0.09};
 
-// constants defined for gfield_close calculation
-static double ONE_THIRD = 1.0 / 3.0;
-static double complex c1  = (double complex) 1.0;
-static double complex c2  = (double complex) 2.0;
-static double complex c3  = (double complex) 3.0;
-static double complex c4  = (double complex) 4.0;
-static double complex c12 = (double complex) 12.0;
-static double complex c05 = (double complex) 0.5;
-static double II = (double complex) 1.0*I;
-static double TOLERANCE  = 0.00001;
-static double TOLERANCE2 = 0.001;
+const double ONE_THIRD=1.0/3.0;
+#define c1 (double complex) 1.0
+#define c2 (double complex) 2.0
+#define c3 (double complex) 3.0
+#define c4 (double complex) 4.0
+#define c12 (double complex) 12.0
+#define c05 (double complex) 0.5
+#define II (double complex) 1.0*I
+const double TOLERANCE=0.00001;
+const double TOLERANCE2=0.001;
 
-static int X = 0;
-static int Y = 1;
-static int Z = 2;
+#define X 0
+#define Y 1
+#define Z 2
 
 // now let's compute the values of T at which the various poles cross the real axis
 inline double complex f1(double complex x) {
@@ -180,11 +189,29 @@ void gfield_far(double rho, double z, int n, double *rfield, double *zfield) {
   *zfield += factor * (r_squared * z   + shift * shift * z);
 }
 
+void inipotential(int *npar, double *par, string name) {
+  int n;
+  n = *npar;
+  if (n>0) omega = par[0];
+  if (n>1) miya_ascal = par[1];
+  if (n>2) miya_bscal = par[2];
+  if (n>3) miya_mass  = par[3];
+  if (n>4) plu_rc   = par[4];
+  if (n>5) plu_mass = par[5];
+  if (n>6) vhalo = par[6];
+  if (n>7) q = par[7];
+  if (n>8) d = par[8];
+  if (n>9) warning("mpc: only first 9 parameters recognized");
+}
+
 // call this from your own potential file (double version)
-void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
+void potential_double(int *ndim, double *pos, double *acc, double *pot, double *time) {
   double rho, z, rfield, zfield;
   double r, l, tr, tl; // r (right), l (left), tr (top right), tl (top left)
   int n;
+
+  acc[X] = 0; acc[Y] = 0; acc[Z] = 0;
+  *pot = 0;
 
   rfield = 0.0;
   zfield = 0.0;
@@ -231,21 +258,3 @@ void apply_caustic_pot_double(double *pos, double *acc, double *pot) {
   acc[Z] += zfield;
 
 }
-// call this from your own potential file (float version)
-void apply_caustic_pot_float(float *pos, float *acc, float *pot) {
-  double pos_d[3];
-  double acc_d[3];
-  double pot_d = 0;
-
-  pos_d[X] = (double) pos[X]; pos_d[Y] = (double) pos[Y]; pos_d[Z] = (double) pos[Z];
-  acc_d[X] = 0;               acc_d[Y] = 0;               acc_d[Z] = 0;
-
-  apply_caustic_pot_double(pos_d,acc_d,&pot_d);
-
-  acc[X] += (float) acc_d[X];
-  acc[Y] += (float) acc_d[Y];
-  acc[Z] += (float) acc_d[Z];
-  *pot += (float) pot_d;
-
-}
-

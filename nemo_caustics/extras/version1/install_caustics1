@@ -1,0 +1,43 @@
+DIR=$NEMO/src/orbit/potential/data
+
+
+# Install caustics1.c
+cp caustics1.c ${DIR} 2> /dev/null
+if [[ $? != 0 ]]; then return; fi
+
+cd ${DIR}
+if [[ $? != 0 ]]; then return; fi
+
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o caustics1.o caustics1.c
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+gcc --shared -o caustics1.so caustics1.o
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+cp caustics1.so $NEMOOBJ/potential/
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+cd - > /dev/null
+
+echo Shared object \'caustics1.so\' complete, you can now use potential \'caustics1\'.
+
+# Install mpc1.c
+cp mpc1.c ${DIR} 2> /dev/null
+if [[ $? != 0 ]]; then return; fi
+
+cd ${DIR}
+if [[ $? != 0 ]]; then return; fi
+
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o mpc1.o mpc1.c
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+gcc --shared -o mpc1.so mpc1.o
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+cp mpc1.so $NEMOOBJ/potential/
+if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
+
+cd - > /dev/null
+
+echo Shared object \'mpc1.so\' complete, you can now use potential \'mpc1\'.
+

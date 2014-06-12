@@ -1,0 +1,12 @@
+rm pot_tested_values2.txt
+for z in `seq -40 5 40`;
+do
+	for y in `seq -40 5 40`;
+	do
+		for x in `seq -40 5 40`;
+		do
+			potlist x=$x y=$y z=$z potname=mpc2 format=%.6f potpars=0.0,6.5,0.26,4.49865888E5,0.7,1.52954402E5,116.5858734,1.0>> pot_tested_values2.txt
+		done
+		
+	done
+done

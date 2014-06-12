@@ -25,30 +25,27 @@
 #include <complex.h>
 #include <stdio.h>
 
-static double G_caustics = 1.0;
+//local double G = 1.0;
+const double G_caustics = 1.0;
+const double a_n[] = {1.0,40.1,20.1,13.6,10.4,8.4,7.0,6.1,5.3,4.8,4.3,4.0,3.7,3.4,3.2,3.0,2.8,2.7,2.5,2.4,2.3};
+const double V_n[] = {1.0,517,523,523,523,522,521,521,520,517,515,512,510,507,505,503,501,499,497,496,494};
+const double rate_n[] = {1.0,53,23,14,10,7.8,6.3,5.3,4.5,3.9,3.4,3.1,2.8,2.5,2.3,2.1,2.0,1.8,1.7,1.6,1.5};
+const double p_n[] = {1.0,0.3,0.3,1.0,0.3,0.15,0.12,0.6,0.23,0.41,0.25,0.19,0.17,0.11,0.09,0.09,0.09,0.09,0.09,0.09,0.09};
 
-// properties of n=1-20 caustic ring flows from tables in Duffy & Sikivie (2008)
-// caustic flow number            1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
-static double a_n[]    = {1.0,  40.1,  20.1,  13.6,  10.4,  8.4,  7.0,  6.1,  5.3,  4.8,  4.3,  4.0,  3.7,  3.4,  3.2,  3.0,  2.8,  2.7,  2.5,  2.4,  2.3};
-static double V_n[]    = {1.0,   517,   523,   523,   523,  522,  521,  521,  520,  517,  515,  512,  510,  507,  505,  503,  501,  499,  497,  496,  494};
-static double rate_n[] = {1.0,    53,    23,    14,    10,  7.8,  6.3,  5.3,  4.5,  3.9,  3.4,  3.1,  2.8,  2.5,  2.3,  2.1,  2.0,  1.8,  1.7,  1.6,  1.5};
-static double p_n[]    = {1.0,   0.3,   0.3,   1.0,   0.3, 0.15, 0.12,  0.6, 0.23, 0.41, 0.25, 0.19, 0.17, 0.11, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09};
+const double ONE_THIRD=1.0/3.0;
+#define c1 (double complex) 1.0
+#define c2 (double complex) 2.0
+#define c3 (double complex) 3.0
+#define c4 (double complex) 4.0
+#define c12 (double complex) 12.0
+#define c05 (double complex) 0.5
+#define II (double complex) 1.0*I
+const double TOLERANCE_caustics=0.00001;
+const double TOLERANCE2_caustics=0.001;
 
-// constants defined for gfield_close calculation
-static double ONE_THIRD = 1.0 / 3.0;
-static double complex c1  = (double complex) 1.0;
-static double complex c2  = (double complex) 2.0;
-static double complex c3  = (double complex) 3.0;
-static double complex c4  = (double complex) 4.0;
-static double complex c12 = (double complex) 12.0;
-static double complex c05 = (double complex) 0.5;
-static double II = (double complex) 1.0*I;
-static double TOLERANCE  = 0.00001;
-static double TOLERANCE2 = 0.001;
-
-static int X_caustics = 0;
-static int Y_caustics = 1;
-static int Z_caustics = 2;
+#define X_caustics 0
+#define Y_caustics 1
+#define Z_caustics 2
 
 // now let's compute the values of T at which the various poles cross the real axis
 inline double complex f1(double complex x) {
@@ -75,7 +72,7 @@ inline double complex f5(double complex x, double complex z, double complex T) {
 
 
 inline double complex T1(double complex x, double complex z) {
-  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2) {
+  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
     double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x -8.0*x*x*x), ONE_THIRD) / 3.0;
     return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp - c2*x/csqrt(f1(x) / 2.0 + temp) ));
   } else {
@@ -85,7 +82,7 @@ inline double complex T1(double complex x, double complex z) {
 }
 
 inline double complex T2(double complex x, double complex z) {
-  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2) {
+  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
     double complex temp = cpow(( -1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD) / 3.0;
     return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp - c2 * x / sqrt(f1(x) / 2.0 + temp) ));
   } else {
@@ -95,7 +92,7 @@ inline double complex T2(double complex x, double complex z) {
 }
 
 inline double complex T3(double complex x, double complex z) {
-  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2) {
+  if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
     double complex temp = cpow((-1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD)/3.0;
     return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp + c2 * x / csqrt(f1(x) / 2.0 + temp) ));
   } else {
@@ -105,7 +102,7 @@ inline double complex T3(double complex x, double complex z) {
 }
 
 inline double complex T4(double complex x, double complex z) {
-  if (creal(x) >= -0.125 && cabs(f4(x,z))<TOLERANCE2) {
+  if (creal(x) >= -0.125 && cabs(f4(x,z))<TOLERANCE2_caustics) {
     double complex temp = cpow((-1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD)/3.0;
     return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp + c2 * x / csqrt(f1(x) / 2.0 + temp) ));
   } else {
@@ -134,7 +131,7 @@ void gfield_close(double rho, double z, int n, double *rfield, double *zfield) {
 
   // get only the roots we want
   for (i = 0; i < 4; ++i) {
-    if (im[i] < TOLERANCE) {
+    if (im[i] < TOLERANCE_caustics) {
       re[count] = re[i];    
       ++count; // count the roots - there should be 2 or 4
     }

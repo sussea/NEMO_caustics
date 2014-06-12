@@ -1,22 +1,75 @@
-Provided here is the open-source caustics.c potential file for the
-stellar dynamics toolbox NEMO. Included is also a script to combine
-this potential with potential files that model other parts of the
-galaxy. This script can be run with 'source add_caustics_call
-potentialname'. The script merely find yours file in
-$NEMO/src/orbit/potential/data, adds a function call, recompiles, and
-links objects. Some alternative methods for combining potentials are
-mentioned in the comments at the top of the add_caustics_call file.
-Also included is an example potential to combine with caustics.c,
-mpc.c, and an example of the expected result of combining,
-mpc_caustics.c. This file combines the Miyamoto, Plummer, and
-(assuming you combine properly) caustic potentials into one
-mpc_caustics file. You may test that everything is working properly by
-running the add_caustics_call script on mpc.c (not mpc_caustics.c),
-and then running 'make -f Testfile all'.
+Provided here are caustics.c, caustics.h, mpc.c, install_caustics, Testfile.
 
-You may find additional information on the caustic potential in either
-the caustics documentation or in one of Pierre Sikivie's papers, such
-as the one found here: http://arxiv.org/abs/astro-ph/9902210
+INSTALLATION:
+
+To install the potential files into the NEMO environment
+Copy the caustics.c file to the potential directory and compile the potential.
+
+$ install_caustics
+
+To test the caustic potential files.
+
+$ make -f Testfile all
+________________________________________________________________________________
+
+FILE DESCRIPTIONS:
+
+caustics.c
+
+Is the potential of the Caustic Ring Model of the Milky Way Halo of Pierre
+Sikivie. This potential installed into the NEMO environment and may be called
+as other NEMO potentials.
+
+potname=caustics
+________________________________________________________________________________
+
+caustics.h is a header file containing the declaration and 
+implementation of the caustic functions.
+Inclusion of the caustic header file allows inline calls to
+the caustic functions.
+
+USAGE: apply_caustic_pot_double([position], [acceleration], [potential])
+
+[postion] is a pointer to an array of x, y, z particle positions.
+[acceleration] is a pointer to an array of ax, ay, az particle accelerations.
+[potential] is a pointer to a variable defining the potential as a function of r
+
+In the standard NEMO defintions these are *pos, *acc and *pot.
+	
+If the implementation is using floats this can be called as:
+apply_caustic_pot_float([postion], [accerleration], [potential])
+
+In standard usage the functions would be called as:
+	apply_caustic_pot_double(*pos, *acc, *pot)
+	apply_caustic_pot_float(*pos, *acc, *pot)
+________________________________________________________________________________
+
+mpc.c 
+
+Is a combined potential using a Miyamoto, Plummer and caustics potential using
+the caustics.h file to include the caustic potential. It is included as an 
+example of usage and to test the installation.
+
+________________________________________________________________________________
+
+install_caustics
+
+This is a shell script that installs the provided potentials. This should work
+for standard NEMO configurations. More custom environments would need the 
+potentials compiled manually.
+
+________________________________________________________________________________
+
+Testfile
+
+This tests the values of the potentials for caustics.c and mpc.c to verify
+the potentials are functioning in the environment.
+
+________________________________________________________________________________
+
+There is additional information on the caustic potential in the caustics 
+documentation and in one of Pierre Sikivie's paper such 
+http://arxiv.org/abs/astro-ph/9902210
 
 List of authors: Julie Dumas, Adam Susser, Jeff Thompson
 
@@ -25,5 +78,6 @@ Acknowledgements:
                         deriving gfield_far()'s approximation
         Heywood Tam:    For deriving and coding the initial version of
                         gfield_close()
+
 
 Git repository: https://github.com/sussea/NEMO_caustics

@@ -1,0 +1,12 @@
+rm pot_tested_values1.txt
+for z in `seq -40 40`;
+do
+	for x in `seq -40 40`;
+	do
+		for y in `seq -40 40`;
+		do
+			potlist x=$x y=$y z=$z potname=caustics2 format=%.6f>> pot_tested_values1.txt
+		done
+		
+	done
+done
