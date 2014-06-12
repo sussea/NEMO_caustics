@@ -1,8 +1,0 @@
-cp ${1}.c $NEMO/src/orbit/potential/data/
-cp caustics.c $NEMO/src/orbit/potential/data/
-cd $NEMO/src/orbit/potential/data/
-gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o ${1}.o ${1}.c
-gcc -fPIC -c -o caustics.o caustics.c
-gcc --shared -o ${1}.so ${1}.o caustics.o
-cp ${1}.so $NEMOOBJ/potential/
-cd - > /dev/null

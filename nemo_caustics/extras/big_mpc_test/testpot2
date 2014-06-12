@@ -1,6 +1,0 @@
-rm pot_tested_values_seded2.txt
-rm pot_test_seded2.txt
-
-cat pot_tested_values2.txt | sed 's/[^ ]* [^ ]* [^ ]*$//g' | sed 's/-0.000000\([ $]\)/0.000000\1/g' >> pot_tested_values_seded2.txt
-cat pot_test2.txt | sed 's/-0.000000\([ $]\)/0.000000\1/g' >> pot_test_seded2.txt
-diff -y --suppress-common-lines pot_tested_values_seded2.txt pot_test_seded2.txt | grep -v "      "

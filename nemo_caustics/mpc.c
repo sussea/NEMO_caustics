@@ -42,7 +42,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <complex.h>
-#include "caustics2.h"
+#include "caustics.h"
 
 local double omega = 0.0;		/* pattern speed */
 local double miya_ascal = 0.0;
