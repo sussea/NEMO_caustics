@@ -1,46 +1,46 @@
 DIR=$NEMO/src/orbit/potential/data
 
 
-# Install caustics2.c
-cp caustics2.c ${DIR} 2> /dev/null
+# Install caustics.c
+cp caustics.c ${DIR} 2> /dev/null
 if [[ $? != 0 ]]; then return; fi
 
 cd ${DIR}
 if [[ $? != 0 ]]; then return; fi
 
-gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o caustics2.o caustics2.c
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o caustics.o caustics.c
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
-gcc --shared -o caustics2.so caustics2.o
+gcc --shared -o caustics.so caustics.o
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
-cp caustics2.so $NEMOOBJ/potential/
+cp caustics.so $NEMOOBJ/potential/
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
 cd - > /dev/null
 
-echo Shared object \'caustics2.so\' complete, you can now use potential \'caustics2\'.
+echo Shared object \'caustics.so\' complete, you can now use potential \'caustics\'.
 
-# Install mpc2.c
-cp mpc2.c ${DIR} 2> /dev/null
+# Install mpc.c
+cp mpc.c ${DIR} 2> /dev/null
 if [[ $? != 0 ]]; then return; fi
 
-cp caustics2.h ${DIR} 2> /dev/null
+cp caustics.h ${DIR} 2> /dev/null
 if [[ $? != 0 ]]; then return; fi
 
 cd ${DIR}
 if [[ $? != 0 ]]; then return; fi
 
-gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o mpc2.o mpc2.c
+gcc -fPIC -c -I$NEMO -I$NEMOINC -I$NEMOINC/max -o mpc.o mpc.c
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
-gcc --shared -o mpc2.so mpc2.o
+gcc --shared -o mpc.so mpc.o
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
-cp mpc2.so $NEMOOBJ/potential/
+cp mpc.so $NEMOOBJ/potential/
 if [[ $? != 0 ]]; then cd - > /dev/null; return; fi
 
 cd - > /dev/null
 
-echo Shared object \'mpc2.so\' complete, you can now use potential \'mpc2\'.
+echo Shared object \'mpc.so\' complete, you can now use potential \'mpc\'.
 
