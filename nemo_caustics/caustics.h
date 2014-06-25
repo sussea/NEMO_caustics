@@ -26,11 +26,11 @@
 const double G_caustics = 1.0;
 
 // properties of n=1-20 caustic ring flows from tables in Duffy & Sikivie (2008)
-// caustic flow number      1,     2,     3,     4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
-double a_n[]    = {1.0,  40.1,  20.1,  13.6,  10.4,  8.4,  7.0,  6.1,  5.3,  4.8,  4.3,  4.0,  3.7,  3.4,  3.2,  3.0,  2.8,  2.7,  2.5,  2.4,  2.3};
-double V_n[]    = {1.0,   517,   523,   523,   523,  522,  521,  521,  520,  517,  515,  512,  510,  507,  505,  503,  501,  499,  497,  496,  494};
-double rate_n[] = {1.0,    53,    23,    14,    10,  7.8,  6.3,  5.3,  4.5,  3.9,  3.4,  3.1,  2.8,  2.5,  2.3,  2.1,  2.0,  1.8,  1.7,  1.6,  1.5};
-double p_n[]    = {1.0,   0.3,   0.3,   1.0,   0.3, 0.15, 0.12,  0.6, 0.23, 0.41, 0.25, 0.19, 0.17, 0.11, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09};
+// caustic flow number     1,    2,    3,    4,    5,    6,    7,    8,    9,   10,   11,   12,   13,   14,   15,   16,   17,   18,   19,   20    
+double a_n[]    = {1.0, 40.1, 20.1, 13.6, 10.4,  8.4,  7.0,  6.1,  5.3,  4.8,  4.3,  4.0,  3.7,  3.4,  3.2,  3.0,  2.8,  2.7,  2.5,  2.4,  2.3}; // caustic ring radius
+double V_n[]    = {1.0,  517,  523,  523,  523,  522,  521,  521,  520,  517,  515,  512,  510,  507,  505,  503,  501,  499,  497,  496,  494}; // particle speed in caustic
+double p_n[]    = {1.0,  0.3,  0.3,  1.0,  0.3, 0.15, 0.12,  0.6, 0.23, 0.41, 0.25, 0.19, 0.17, 0.11, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09}; // longitudinal length of caustic (along rho)
+double rate_n[] = {1.0,   53,   23,   14,   10,  7.8,  6.3,  5.3,  4.5,  3.9,  3.4,  3.1,  2.8,  2.5,  2.3,  2.1,  2.0,  1.8,  1.7,  1.6,  1.5}; // dark matter mass infall per unit solid angle per time
 
 const double ONE_THIRD=1.0/3.0;
 #define c1 (double complex) 1.0
@@ -73,8 +73,8 @@ inline double complex f5(double complex x, double complex z, double complex T) {
 
 inline double complex T1(double complex x, double complex z) {
   if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
-    double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x -8.0*x*x*x), ONE_THIRD) / 3.0;
-    return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp - c2*x/csqrt(f1(x) / 2.0 + temp) ));
+    double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x - 8.0*x*x*x), ONE_THIRD)/3.0;
+    return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp - c2*x / csqrt(f1(x)/2.0 + temp) ));
   } else {
     double complex temp = csqrt(f1(x) / 2.0 + f2(x,z) / (c3 * f4(x,z)) + f4(x,z) / c12);
     return c05 * (c1 - temp - csqrt( f1(x) - f2(x,z) / (c3 * f4(x,z)) - f4(x,z) / c12 - c2 * x / temp ));
@@ -83,8 +83,8 @@ inline double complex T1(double complex x, double complex z) {
 
 inline double complex T2(double complex x, double complex z) {
   if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
-    double complex temp = cpow(( -1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD) / 3.0;
-    return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp - c2 * x / sqrt(f1(x) / 2.0 + temp) ));
+    double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x - 8.0*x*x*x), ONE_THIRD)/3.0;
+    return c05 * (c1 - csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp - c2*x / csqrt(f1(x)/2.0 + temp) ));
   } else {
     double complex temp = csqrt(f1(x) / 2.0 + f2(x,z) / (c3 * f4(x,z)) + f4(x,z) / c12);
     return c05 * (c1 - temp + csqrt( f1(x) - f2(x,z) / (c3 * f4(x,z)) - f4(x,z) / c12 - c2 * x / temp ));
@@ -93,25 +93,26 @@ inline double complex T2(double complex x, double complex z) {
 
 inline double complex T3(double complex x, double complex z) {
   if (creal(x) >= -0.125 && cabs(f4(x,z)) < TOLERANCE2_caustics) {
-    double complex temp = cpow((-1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD)/3.0;
-    return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp + c2 * x / csqrt(f1(x) / 2.0 + temp) ));
+    double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x - 8.0*x*x*x), ONE_THIRD)/3.0;
+    return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) - csqrt( f1(x) - temp + c2*x / csqrt(f1(x)/2.0 + temp) ));
   } else {
     double complex temp = csqrt(f1(x) / 2.0 + f2(x,z) / (c3 * f4(x,z)) + f4(x,z) / c12);
-    return c05*(c1 + temp - csqrt( f1(x) - f2(x,z) / (c3 * f4(x,z)) - f4(x,z) / c12 + c2 * x / temp ));
+    return c05 * (c1 + temp - csqrt( f1(x) - f2(x,z) / (c3 * f4(x,z)) - f4(x,z) / c12 + c2 * x / temp ));
   }
 }
 
 inline double complex T4(double complex x, double complex z) {
   if (creal(x) >= -0.125 && cabs(f4(x,z))<TOLERANCE2_caustics) {
-    double complex temp = cpow((-1.0 - 6.0 * x + 15.0 * x*x - 8.0 * x*x*x), ONE_THIRD)/3.0;
-    return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp + c2 * x / csqrt(f1(x) / 2.0 + temp) ));
+    double complex temp = cpow((-1.0 - 6.0*x + 15.0*x*x - 8.0*x*x*x), ONE_THIRD)/3.0;
+    return c05 * (c1 + csqrt(f1(x) / 2.0 + temp) + csqrt( f1(x) - temp + c2*x / csqrt(f1(x)/2.0 + temp) ));
   } else {
     double complex temp = csqrt(f1(x) / 2.0 + f2(x,z) / (c3 * f4(x,z)) + f4(x,z) / c12);
     return c05 * (c1 + temp + csqrt(f1(x) - f2(x,z) / (c3*f4(x,z)) - f4(x,z) / c12 + c2 * x / temp ));
   }
 }
 
-// calculate gfield close to the nth caustic ring flow
+
+// calculate gfield 	 to the nth caustic ring flow
 // two cases: within the caustic, all four roots are real, so we use T1 for d4 and T2,3,4 for d3
 // outside the caustic there should be two real roots and two complex roots
 // the vector intlimits hold the limits of integration; for the first case, intlimits is of length four; second, length two
