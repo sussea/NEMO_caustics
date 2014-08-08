@@ -338,7 +338,6 @@ void apply_dynamical_friction_voluminous(NBodyState* st) {
 }
 
 void apply_dynamical_friction(NBodyState* st, const NBodyCtx* ctx) {
-  return;
   real dwarf_mass = 10.0;
   real b_max = 1; // doesn't matter much, probably
   real factor = 2*M_PI*G_caustics*G_caustics*dwarf_mass;
