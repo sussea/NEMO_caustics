@@ -357,7 +357,7 @@ void apply_dynamical_friction(NBodyState* st, const NBodyCtx* ctx) {
     Body* b = &st->bodytab[i];
     real rho = hypot(X(Pos(b)),Y(Pos(b)));
     mwvector old_pos = mw_subv( Pos(b), mw_mulvs(Vel(b), (ctx->timestep)) );
-    real collision_info[4][3] = {{0,0,0},{0,0,0},{0,0,0},{0,0,0}}; // coordinates of up to 4 collisions - rho, Z, and T in that order (T just for which sheet)
+    real collision_info[4][3] = {{0,0,0},{0,0,0},{0,0,0},{0,0,0}}; // rho, Z, and T coordinates (in that order) of up to 4 collisions (T just for determining crossed sheet)
     int collnum; // number of collisions with the caustic envelope
     mwvector delta_vel = mw_vec(0,0,0);
     for (n = 1; n <= 20; ++n) {
@@ -405,8 +405,8 @@ void apply_dynamical_friction(NBodyState* st, const NBodyCtx* ctx) {
                                                        X(Pos(b)),     Y(Pos(b)),     Z(Pos(b)),
                                                        mw_absv(delta_vel), delta_V_max, avg_delta_V_sum2);
       }
-      Vel(b) = mw_addv(Vel(b), delta_vel);
     }
+    Vel(b) = mw_addv(Vel(b), delta_vel);
   }
   avg_delta_V_sum2 += avg_delta_V_sum1/nbody;
 }
